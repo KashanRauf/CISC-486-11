@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Game Dev TImeline" company="" webLink="http://" view-date="2026-09-06" view-index="0" gantt-divider-location="626" resource-divider-location="300" version="3.3.3316" locale="en_US">
+    <description/>
+    <view zooming-state="default:5" id="gantt-chart">
+        <field id="tpd3" name="Name" width="357" order="0"/>
+        <field id="tpd4" name="Begin date" width="134" order="1"/>
+        <field id="tpd5" name="End date" width="134" order="2"/>
+        <field id="tpd15" name="Notes" width="20" order="3"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+        <timeline><![CDATA[1]]></timeline>
+        <option id="color.recent"><![CDATA[#000000 #33ff33 #ff33ff #ff3333 #ffff66 #f4f4f4]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" uid="fadf7445d4574d2885a5a1ae2434dc36" name="Proposal" meeting="false" start="2026-09-08" duration="14" complete="70" expand="true">
+            <notes><![CDATA[Proposal is mostly done, just need to formalize writing and do the Gantt chart]]></notes>
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="1" uid="34e2cd6f09104fb6951b16ebcd1d8d5c" name="Prototype- Vertical Slice" meeting="false" start="2026-09-22" duration="37" complete="0" expand="true">
+            <notes><![CDATA[The prototype should be a nearly completed tutorial level. This means that most of the remaining work when we are done is finishing the remaining levels, adding new races of enemies that mostly use the existing subclasses, polishing UI and art stuff. Polishing the gameplay and NPC behaviors is important too.
+
+This means we need:
+- A start menu and pause menu (okay if they're ugly)
+- Other UI elements (rough, should convey the information and have correct layouts)
+- A settings menu for sound and maybe controls (can be ugly)
+- The scene where gameplay takes place
+- Entities for the captain, crew members of all classes, NPCs of all classes
+- Objectives that the enemies target and a way for them to progress towards it
+- The player's commanding abilities and UI, and a way for crew members to fight back against the enemies
+- Scripted events that trigger for win/loss conditions
+]]></notes>
+            <task id="9" uid="be445beca32f4b6ab7e67c163c078f24" name="Deliverable for demo submission" meeting="false" start="2026-10-14" duration="15" complete="0" expand="true"/>
+            <task id="2" uid="f408a62f5b0447ad80e0af408d1ac164" name="Assets for world environment" color="#ff33ff" meeting="false" start="2026-09-22" duration="8" complete="0" expand="true">
+                <depend id="3" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="3" uid="9e73c43b0f1346078f6e6d15c809b9c8" name="Create world scene" color="#33ff33" meeting="false" start="2026-09-30" duration="15" complete="0" expand="true">
+                <notes><![CDATA[This is the level that the game is played in, including but not limited to:
+- The ship and its objectives
+- Textures for the skybox
+- Whatever is needed for the ocean water
+- Foliage like rocks, islands, etc. that pop out of water]]></notes>
+            </task>
+            <task id="4" uid="1b0a81c01df74823860ab0df1c9b0b97" name="NPC classes and capabilities" color="#ffff66" meeting="false" start="2026-09-22" duration="8" complete="0" expand="true">
+                <notes><![CDATA[What jobs can NPCs have?
+- Allies: e.g. repairs, medics, ranged fighters, melee fighters
+- Enemies: e.g. ranged fighters, melee fighters, elite/tanky enemies
+
+Where can enemy/ally NPCs go to or be assigned to?
+- Allies: cannons, defend objectives, fight enemies, etc
+- Enemies: destroy defenses, fight allies, capture objectives
+
+What abilities do these jobs have? Do certain jobs handle certain assignments better?
+
+]]></notes>
+                <depend id="6" type="1" difference="0" hardness="Strong"/>
+                <depend id="7" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="7" uid="171958dcfaff4f5db09d99215c2a320f" name="Assets for interactives and characters" color="#ff33ff" meeting="false" start="2026-09-30" duration="15" complete="0" expand="true">
+                <notes><![CDATA[- Objectives on the ship
+- Cannons and other defenses
+- Characters: The captain, ally and enemy NPCs for each class, for now we only need pirate NPCs. 
+
+it would be best if we could find an asset pack or make models that have the same visual style and match the world scene, and if we can reuse the models to create a variety of subclasses
+
+the parrot and other stuff maybe?
+]]></notes>
+                <depend id="8" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="8" uid="1e239c000f6b44beaf6cd653e3d47eae" name="Build tutorial level" color="#33ff33" meeting="false" start="2026-10-15" duration="14" complete="0" expand="true"/>
+            <task id="19" uid="fb1e8ba410aa48d682d1476dfd80cd1e" name="SFX and animations" color="#ff33ff" meeting="false" start="2026-10-15" duration="8" complete="0" expand="true"/>
+            <task id="5" uid="754e8abd6b104b4088f03c8d05675761" name="Program basic subsystems" color="#ff3333" meeting="false" start="2026-09-22" duration="12" complete="0" expand="true">
+                <notes><![CDATA[Movement, cameras, UI/settings
+
+Managing levels and scripted events
+
+OOP style system for managing NPCs
+
+Cutscenes:
+- Camera placement/movement
+- Dialogue boxes
+- Scripting]]></notes>
+                <depend id="6" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="6" uid="b56c1c127b944753b9720564d66562ba" name="Combat and navigation for NPCs" color="#ff3333" meeting="false" start="2026-10-04" duration="19" complete="0" expand="true"/>
+            <task id="10" uid="227ef9c53d724735b956bb03d14c5b19" name="Polish demo" meeting="false" start="2026-10-24" duration="5" complete="0" expand="true">
+                <notes><![CDATA[- If we can also make the opening cutscene that would be nice
+]]></notes>
+            </task>
+            <task id="13" uid="d540acc0eb084be29023e415aacf5efe" name="Prototype complete and submitted" color="#000000" meeting="true" start="2026-10-28" duration="0" complete="0" priority="4" expand="true">
+                <depend id="11" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="11" uid="97d2495811cf4a4f8e512bb031d54293" name="Final version" meeting="false" start="2026-10-29" duration="23" complete="0" expand="true">
+            <task id="12" uid="b453fe97274a4d8d9d70eb86d0341162" name="Create new enemies, classes, and capabilities" color="#ffff66" meeting="false" start="2026-10-29" duration="5" complete="0" expand="true">
+                <depend id="15" type="1" difference="0" hardness="Strong"/>
+            </task>
+            <task id="15" uid="b48f07c8b71c4e09b5182a28cd929f38" name="Assets for new NPCs and interactibles" color="#ff33ff" meeting="false" start="2026-10-29" duration="11" complete="0" expand="true"/>
+            <task id="14" uid="65911d944e1e47ba8260ead38c53cf0c" name="Balance and difficulty scaling" color="#ffff66" meeting="false" start="2026-11-08" duration="5" complete="0" expand="true"/>
+            <task id="16" uid="39115cac0b364ba89f5018f6091621c8" name="Plan economy and shop" color="#ffff66" meeting="false" start="2026-11-03" duration="5" complete="0" expand="true">
+                <depend id="18" type="1" difference="0" hardness="Strong"/>
+            </task>
+            <task id="18" uid="8d2751713a0649c0883e0012b1a26276" name="Currency drops, shop, scoring system" color="#ff3333" meeting="false" start="2026-11-03" duration="6" complete="0" expand="true"/>
+            <task id="17" uid="abf24a0c42d740468d9a5995aaf0aa4a" name="Make the UI look good" color="#ff33ff" meeting="false" start="2026-11-09" duration="7" complete="0" expand="true">
+                <notes><![CDATA[Final designs instead of placeholders]]></notes>
+            </task>
+            <task id="20" uid="98b6a9273f4947e89354ddfbc02ec051" name="Build a few more levels" color="#33ff33" meeting="false" start="2026-10-29" duration="8" complete="0" expand="true">
+                <notes><![CDATA[- Can use existing enemy types as placeholders for new enemies]]></notes>
+            </task>
+            <task id="22" uid="7be16a114fbe476e9a57dc2d697e3d0d" name="Polishing" meeting="false" start="2026-11-13" duration="8" complete="0" expand="true"/>
+            <task id="21" uid="b89bd4d268c74f598aaa4f3e28de7406" name="Deliverable for submission" meeting="false" start="2026-11-06" duration="15" complete="0" expand="true"/>
+            <task id="23" uid="3ce58e0e31734644b1d269bff467a536" name="Final version complete and submitted" color="#000000" meeting="true" start="2026-11-20" duration="0" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Full team" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="Art" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="Programming" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="Level design" function="Default:0" contacts="" phone=""/>
+        <resource id="4" name="Gameplay coordination" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="1" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="2" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="5" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="3" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="4" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="16" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
