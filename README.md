@@ -2,7 +2,7 @@
 
 ## Group Members:
 - Kashan Rauf
-- 
+- Tracy Chan
 - 
 - 
 
