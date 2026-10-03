@@ -2,8 +2,8 @@
 
 ## Group Members:
 - Kashan Rauf
-- 
-- 
+- Tracy Chan
+- Ikra Mortoza
 - 
 
 ## Setup Instructions 
