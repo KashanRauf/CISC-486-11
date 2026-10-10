@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-// A derivative replacement of the typical Image class for dialogue portraits (could be applied elsewhere maybe)
+// A derivative of/replacement for the existing Image class for dialogue portraits (could be applied elsewhere maybe)
 // Holds all portraits that may be used in dialogue and enables switching them through the DialogueManager
 public class ChangingPortrait : Image
 {

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ManagedUI">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ManagedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager">
+    <Position X="10" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAACAAEAAAAAgAADAAAQAEAAAAAAAAAAAAEkA=</HashCode>
+      <FileName>Assets\Scripts\UIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="activeUI" />
+      <Field Name="defaultUI" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="uis" />
+      <Field Name="history" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DialogueManager">
+    <Position X="5.25" Y="5.25" Width="2.25" />
+    <AssociationLine Name="portrait" Type="ChangingPortrait">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.254" Y="0.056" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="dialogue" Type="Dialogue">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.18" Y="0.062" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AARAAACCACAAARBAAAAAAAAABAAAAAAAAABAAACAABA=</HashCode>
+      <FileName>Assets\Scripts\DialogueManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="portrait" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="dialogue" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MainMenu">
+    <Position X="1.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAQAAAAAAIIAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingsMenu">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEEACAAAQAEAAABAACBAAAAAAAAAIAgAEAAEAA=</HashCode>
+      <FileName>Assets\Scripts\SettingsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dialogue">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\Dialogue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChangingPortrait">
+    <Position X="8.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCgAAAAAABAAAAAAAAAAAAAAAAAAAIAAABA=</HashCode>
+      <FileName>Assets\Scripts\ChangingPortrait.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="portraits" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DialogueTrigger">
+    <Position X="11.5" Y="7.75" Width="1.5" />
+    <AssociationLine Name="deserializedData" Type="Dialogue">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.175" Y="0.113" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\DialogueTrigger.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="deserializedData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UnityEngine.Sprite" Collapsed="true">
+    <Position X="13" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="JsonHelper">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="JsonHelper.Wrapper&lt;T&gt;">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\JsonHelper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\JsonHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

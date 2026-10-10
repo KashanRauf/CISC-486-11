@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SettingsMenu : MonoBehaviour
+public class SettingsMenu : ManagedUI
 {
 
-    public AudioMixer audio;
-    public TMPro.TMP_Dropdown resDropdown;
+    [SerializeField] private AudioMixer audio;
+    [SerializeField] private TMPro.TMP_Dropdown resDropdown;
+    [SerializeField] private Button back;
 
     private Resolution[] resolutions;
+
+
 
     void Start()
     {
@@ -70,5 +73,10 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution res = resolutions[index];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+    }
+
+    public override void Initialize()
+    {
+        back.onClick.AddListener(() => UIManager.ShowLast());
     }
 }

@@ -2,16 +2,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Collections;
-using System.Text.RegularExpressions;
 using System.Linq;
 
-public class DialogueManager : MonoBehaviour
+// TODO: Should probably be a singleton but I'm not gonna "fix" something that isn't broken
+public class DialogueManager : ManagedUI
 {
     // The Queue contains the remaining lines of a dialogue
     public Queue<Dialogue> dialogue;
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI activeDialogue;
     public ChangingPortrait portrait;
+
 
     // For making the "typing" effect of the text feel nicer
     private char[] punctuation = ".,…!?:;~-".ToCharArray();
@@ -27,6 +28,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Loading dialogue: " + data.name);
         dialogue.Clear();
         BuildDialogue(data);
+        this.Show();
     }
 
     private void BuildDialogue(TextAsset data)
@@ -99,9 +101,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // TODO: Make it so that Dialogue UI elements disappear upon termination
     private void TerminateDialogue()
     {
         Debug.Log("Conversation ended");
+        this.Hide();
     }
+
+    public override void Initialize() {}
 }

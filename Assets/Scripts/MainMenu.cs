@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // Basic menu functions
-public class StartMenu : MonoBehaviour
+public class MainMenu : ManagedUI
 {
     public void StartNewGame()
     {
@@ -21,6 +21,7 @@ public class StartMenu : MonoBehaviour
 
     public void OpenSettings()
     {
+        UIManager.Show<SettingsMenu>();
         Debug.Log("Open Settings");
     }
 
@@ -29,4 +30,6 @@ public class StartMenu : MonoBehaviour
         Debug.Log("Quit Game");
         Application.Quit();
     }
+
+    public override void Initialize() {}
 }
