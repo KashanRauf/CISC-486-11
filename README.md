@@ -35,9 +35,13 @@ Git repo check
 - (Nothing for now)
 
 ## Tutorials Used
-- [Dialogue (Brackeys on YT)](https://www.youtube.com/watch?v=_nRzoTzeyxU)
+- [Dialogue (Brackeys)](https://www.youtube.com/watch?v=_nRzoTzeyxU)
 - [JSON (Boxhead Productions via Wayback Machine)](https://web.archive.org/web/20200227163137/https://www.boxheadproductions.com.au/deserializing-top-level-arrays-in-json-with-unity/)
 - [UI Management (Winterbolt Games on YT)](https://www.youtube.com/watch?v=rdXC2om16lo)
+- [Input System (BiteMe Games on YT)](https://www.youtube.com/watch?v=ONlMEZs9Rgw)
+- [Adapt animations to our models (Kevin Iglesias on YT)](https://www.youtube.com/watch?v=0o7SzYSsR-o)
+- [Character Controller (One Wheel Studio on YT)](https://www.youtube.com/watch?v=WIl6ysorTE0)
+- [Cinemachine (Unity on YT)](https://www.youtube.com/playlist?list=PLX2vGYjWbI0TQpl4JdfEDNO1xK_I34y8P)
 
 ## Documentation
 
@@ -48,7 +52,8 @@ Git repo check
 - UI Management and Menus: UIManager, ManagedUI, MainMenu, SettingsMenu, PauseMenu, ConfirmationPopup, Dialogue Stuff
 - Dialogue: Dialogue, DialogueTrigger, DialogueManager, ChangingPortrait, all JSONs in .\Assets\Dialogue\
 - Settings: SettingsMenu
-- Movement:
+- Movement: PlayerController, PlayerInputActions
+- NPCs: 
 
 ### Prefabs
 - None yet
@@ -60,3 +65,7 @@ Creating dialogue:
 Creating ManagedUI:
 
 Using changing portraits:
+- The ChangingPortrait class is pretty much the same as the default image class for showing images in UIs
+- The key difference is that it instead takes an "initial portrait" (in the Sprite field) and a list of other portraits that it can change to (the initial portrait has to be included here as well) 
+- When you import an image (../UI/Portraits) you'll have to make the texture type a sprite
+

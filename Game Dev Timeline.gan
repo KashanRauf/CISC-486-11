@@ -44,7 +44,7 @@
             <notes><![CDATA[Proposal is mostly done, just need to formalize writing and do the Gantt chart]]></notes>
             <depend id="1" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="1" uid="34e2cd6f09104fb6951b16ebcd1d8d5c" name="Prototype- Vertical Slice" meeting="false" start="2026-09-22" duration="37" complete="0" expand="true">
+        <task id="1" uid="34e2cd6f09104fb6951b16ebcd1d8d5c" name="Prototype- Vertical Slice" meeting="false" start="2026-09-22" duration="37" complete="30" expand="true">
             <notes><![CDATA[The prototype should be a nearly completed tutorial level. This means that most of the remaining work when we are done is finishing the remaining levels, adding new races of enemies that mostly use the existing subclasses, polishing UI and art stuff. Polishing the gameplay and NPC behaviors is important too.
 
 This means we need:
@@ -58,7 +58,7 @@ This means we need:
 - Scripted events that trigger for win/loss conditions
 ]]></notes>
             <task id="9" uid="be445beca32f4b6ab7e67c163c078f24" name="Deliverable for demo submission" meeting="false" start="2026-10-14" duration="15" complete="0" expand="true"/>
-            <task id="2" uid="f408a62f5b0447ad80e0af408d1ac164" name="Assets for world environment" color="#ff33ff" meeting="false" start="2026-09-22" duration="8" complete="0" expand="true">
+            <task id="2" uid="f408a62f5b0447ad80e0af408d1ac164" name="Assets for world environment" color="#ff33ff" meeting="false" start="2026-09-22" duration="8" complete="100" expand="true">
                 <depend id="3" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="3" uid="9e73c43b0f1346078f6e6d15c809b9c8" name="Create world scene" color="#33ff33" meeting="false" start="2026-09-30" duration="15" complete="0" expand="true">
@@ -68,7 +68,7 @@ This means we need:
 - Whatever is needed for the ocean water
 - Foliage like rocks, islands, etc. that pop out of water]]></notes>
             </task>
-            <task id="4" uid="1b0a81c01df74823860ab0df1c9b0b97" name="NPC classes and capabilities" color="#ffff66" meeting="false" start="2026-09-22" duration="8" complete="0" expand="true">
+            <task id="4" uid="1b0a81c01df74823860ab0df1c9b0b97" name="NPC classes and capabilities" color="#ffff66" meeting="false" start="2026-09-22" duration="8" complete="100" expand="true">
                 <notes><![CDATA[What jobs can NPCs have?
 - Allies: e.g. repairs, medics, ranged fighters, melee fighters
 - Enemies: e.g. ranged fighters, melee fighters, elite/tanky enemies
@@ -83,7 +83,7 @@ What abilities do these jobs have? Do certain jobs handle certain assignments be
                 <depend id="6" type="1" difference="0" hardness="Strong"/>
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="7" uid="171958dcfaff4f5db09d99215c2a320f" name="Assets for interactives and characters" color="#ff33ff" meeting="false" start="2026-09-30" duration="15" complete="0" expand="true">
+            <task id="7" uid="171958dcfaff4f5db09d99215c2a320f" name="Assets for interactives and characters" color="#ff33ff" meeting="false" start="2026-09-30" duration="15" complete="60" expand="true">
                 <notes><![CDATA[- Objectives on the ship
 - Cannons and other defenses
 - Characters: The captain, ally and enemy NPCs for each class, for now we only need pirate NPCs. 
@@ -96,17 +96,15 @@ the parrot and other stuff maybe?
             </task>
             <task id="8" uid="1e239c000f6b44beaf6cd653e3d47eae" name="Build tutorial level" color="#33ff33" meeting="false" start="2026-10-15" duration="14" complete="0" expand="true"/>
             <task id="19" uid="fb1e8ba410aa48d682d1476dfd80cd1e" name="SFX and animations" color="#ff33ff" meeting="false" start="2026-10-15" duration="8" complete="0" expand="true"/>
-            <task id="5" uid="754e8abd6b104b4088f03c8d05675761" name="Program basic subsystems" color="#ff3333" meeting="false" start="2026-09-22" duration="12" complete="0" expand="true">
-                <notes><![CDATA[Movement, cameras, UI/settings
-
-Managing levels and scripted events
+            <task id="5" uid="754e8abd6b104b4088f03c8d05675761" name="Program basic subsystems" color="#ff3333" meeting="false" start="2026-09-22" duration="12" complete="90" expand="true">
+                <notes><![CDATA[x Movement
+x UI/settings
+x Dialogue system
+x Level management
+x Scripted events
 
 OOP style system for managing NPCs
-
-Cutscenes:
-- Camera placement/movement
-- Dialogue boxes
-- Scripting]]></notes>
+x Cutscenes and camera will use animators/timeline feature]]></notes>
                 <depend id="6" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="6" uid="b56c1c127b944753b9720564d66562ba" name="Combat and navigation for NPCs" color="#ff3333" meeting="false" start="2026-10-04" duration="19" complete="0" expand="true"/>

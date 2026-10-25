@@ -35,7 +35,7 @@ public class ChangingPortrait : Image
     {
         if (cur_name.Equals(name))
         {
-            Debug.Log("Portrait does not change");
+            //Debug.Log("Portrait does not change");
             return;
         }
         cur_index = (int) namesToIndex[name];

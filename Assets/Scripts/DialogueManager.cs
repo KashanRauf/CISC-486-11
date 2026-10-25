@@ -95,7 +95,7 @@ public class DialogueManager : ManagedUI
             // Delay between each new character, punctuation has a longer delay because I like it that way
             float delay = speed * 0.05f;
             delay *= punctuation.Contains<char>(c) ? 5 : 1;
-            Debug.Log(speed + " " + delay + " " + c);
+            //Debug.Log(speed + " " + delay + " " + c);
 
             yield return new WaitForSeconds(delay);
         }
@@ -103,7 +103,7 @@ public class DialogueManager : ManagedUI
 
     private void TerminateDialogue()
     {
-        Debug.Log("Conversation ended");
+        //Debug.Log("Conversation ended");
         this.Hide();
     }
 
