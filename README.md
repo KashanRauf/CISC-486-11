@@ -4,7 +4,7 @@
 - Kashan Rauf
 - Tracy Chan
 - Ikra Mortoza
-- 
+- Sophie Liang
 
 ## Generative AI Disclaimer
 - Generative AI tools (LLMs, image generators, etc.) have not been used in any part of this game's development
