@@ -8,18 +8,25 @@ public class TeamManager : MonoBehaviour
     [SerializeField] public Team team;
     [SerializeField] public List<Squad> squads = new List<Squad>();
 
-    public List<NPC> casualties;
+    //public List<NPC> casualties;
 
 
     [ContextMenu("Create Squad")]
     public Squad CreateSquad()
     {
-        GameObject obj = new GameObject($"{team.ToString()} squad {squads.Count + 1}");
-        obj.transform.parent = transform;
-        Squad squad = obj.AddComponent<Squad>();
+        Squad squad = Instantiate(
+            Prefabs.prefabs.newSquad, 
+            this.transform)
+            .GetComponent<Squad>();
         squad.manager = this;
-
         squads.Add(squad);
+        
+
+        squad.name = $"{team} squad {squads.Count}";
+        //squad.SpawnMember(Prefabs.prefabs.testEnemy);
+
+        List<GameObject> toSpawn = new List<GameObject>(new GameObject[] { Prefabs.prefabs.testEnemy, Prefabs.prefabs.testEnemy, Prefabs.prefabs.testEnemy });
+        squad.SpawnMembers(toSpawn);
 
         return squad;
     }
@@ -59,18 +66,18 @@ public class TeamManager : MonoBehaviour
         return weakened;
     }
 
-
-
     void Start()
     {
+        //Debug.Log($"Spawning a squad for {team}");
+        CreateSquad();
+
         // Need to keep track of which members have died so that it's reflected in later battles
-        if (team == Team.Defense)
-        {
-            casualties = new List<NPC>();
-        }
+        //if (team == Team.Defense)
+        //{
+        //    casualties = new List<NPC>();
+        //    casualties.Clear();
+        //}
     }
-
-
 }
 
 
