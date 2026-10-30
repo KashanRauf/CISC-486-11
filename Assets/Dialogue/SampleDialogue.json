@@ -1,29 +1,29 @@
 {
   "Items": [
     {
-      "speaker": "Sample",
+      "speaker": "Crew Member",
       "text": "Hi, I'm a crew member. I will cease to exist when we get rid of the placeholders.",
-      "portrait": "PlaceholderPortrait_0"
+      "portrait": "melee_portrait_0"
     },
     {
-      "speaker": "Sample",
+      "speaker": "Crew Member",
       "text": "Wait... that's not a good thing is it? And who is 'we'?",
-      "portrait": "PlaceholderPortrait_0"
+      "portrait": "melee_portrait_0"
     },
     {
-      "speaker": "Sample",
+      "speaker": "Crew Member",
       "text": "Anyways, I have to keep talking or else I won't be able to showcase the dialogue system properly.",
-      "portrait": "PlaceholderPortrait_0"
+      "portrait": "melee_portrait_0"
     },
     {
-      "speaker": "Sample",
+      "speaker": "Crew Member",
       "text": "Am I even getting paid for this?",
-      "portrait": "PlaceholderPortrait_0"
+      "portrait": "melee_portrait_0"
     },
     {
-      "speaker": "Sample2",
+      "speaker": "Crew Member 2",
       "text": "At least you have a mouth, do you have any idea how hard it is to talk without one?",
-      "portrait": "PlaceholderPortrait2_0"
+      "portrait": "ranged_portrait_0"
     }
   ]
 }
