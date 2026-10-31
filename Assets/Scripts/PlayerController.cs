@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     // Movement
     private CharacterController control;
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float rotationSpeed = 10f; 
+    [SerializeField] private float rotationSpeed = 20f; 
     [SerializeField] private float jumpForce = 3f;
-    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float maxSpeed = 20f;
     [SerializeField] private float gravity = 2.2f;
 
     // Movement is relative to camera so we need it

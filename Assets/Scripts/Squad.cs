@@ -10,6 +10,7 @@ public class Squad : NPCComponent
 
     public List<NPC> GetMembers => members;
     public TeamManager manager;
+    public SquadBehavior behavior;
 
     public int MemberCount()
     {
@@ -79,14 +80,41 @@ public class Squad : NPCComponent
         return deadMembers >= 2;
     }
 
+    // Determines the leader by checking who is closest to the objective
+    public void NewLeader(Transform t)
+    {
+        float shortestDistance = float.MaxValue;
+        int shortestIdx = -1;
+
+
+        for (int i = 0; i < members.Count; i++)
+        {
+            if (members[i].HasArrived(t)) continue;
+
+            float distance = Vector3.Distance(t.position, members[i].transform.position);
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                shortestIdx = i;
+            }
+        }
+        
+
+        if (shortestIdx != -1)
+        {
+            NPC temp = members[0];
+            members[0] = members[shortestIdx];
+            members[shortestIdx] = temp;
+        }
+    }
+
     // The leader navigates to the location
-    public void NavigateTo(Transform t)
+    public bool NavigateTo(Transform t)
     {
         // TODO: Check that transform is a legal position
 
-        //Debug.Log($"{manager.team} squad's member count: {MemberCount()}");
-
-        // One member of the group navigates to the target
+        // Determines the leader (closest to location) and follows them
+        NewLeader(t);
         members[0].agent.destination = t.position;
 
         // Follow the leader
@@ -97,6 +125,27 @@ public class Squad : NPCComponent
                 members[i].agent.destination = members[0].transform.position;
             }
         }
+
+        if (SquadHasArrived(t)) return true;
+        //Debug.Log("Some squad members are still on the way");
+
+        return false;
+    }
+
+    public bool SquadHasArrived(Transform t)
+    {
+        foreach (var mem in members)
+        {
+            if (!mem.HasArrived(t)) return false;
+            //Debug.Log($"{mem.name} has arrived");
+        }
+        return true;
+    }
+
+    // Squad wanders within an area
+    public void WanderInSquare(Bounds bounds)
+    {
+
     }
 
     void Start()

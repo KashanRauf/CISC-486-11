@@ -5,9 +5,9 @@ public class NPC : NPCComponent
 {
     public int maxHealth;
     public int health;
-    public int squadNum; // (or reference to Squad?)
-    public float moveForce = 1f;
-    public float maxSpeed = 5f;
+    public float moveForce = 15f;
+    public float maxSpeed = 15f;
+    public float attackDamage = 15f;
 
     public Squad squad;
     public NavMeshAgent agent;
@@ -33,10 +33,23 @@ public class NPC : NPCComponent
         squad = null;
     }
 
+    // For navigation
+    public bool HasArrived(Transform t)
+    {
+        return Vector3.Distance(this.transform.position, t.position) < agent.stoppingDistance;
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         squad = GetComponentInParent <Squad>();
+        if (this.squad.manager.team == Team.Defense)
+        {
+            gameObject.layer = 9;
+        } else if (this.squad.manager.team == Team.Attack)
+        {
+            gameObject.layer = 10;
+        }
         
     }
 

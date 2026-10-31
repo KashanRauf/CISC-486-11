@@ -7,7 +7,14 @@ public class GameStateManager : MonoBehaviour
     
     public GameState State { get; private set; }
 
+    [SerializeField] TeamManager PlayerTeam;
+    [SerializeField] TeamManager EnemyTeam;
+
+    [SerializeField] CapturePoint[] Objectives = new CapturePoint[3];
+
     public static event Action<GameState> OnGameStateChange;
+
+    public static CapturePoint[] GetObjectives => GSM.Objectives;
 
     private void Awake()
     {
