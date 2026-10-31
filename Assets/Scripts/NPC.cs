@@ -36,13 +36,14 @@ public class NPC : NPCComponent
     // For navigation
     public bool HasArrived(Transform t)
     {
-        return Vector3.Distance(this.transform.position, t.position) < agent.stoppingDistance;
+        //Debug.Log($"{Vector3.Distance(t.position, this.transform.position)}");
+        return Vector3.Distance(this.transform.position, t.position) < 15 && this.agent.velocity.sqrMagnitude < 0.001f;
     }
 
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        squad = GetComponentInParent <Squad>();
+        squad = GetComponentInParent<Squad>();
         if (this.squad.manager.team == Team.Defense)
         {
             gameObject.layer = 9;

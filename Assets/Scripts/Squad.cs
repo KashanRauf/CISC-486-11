@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class Squad : NPCComponent
 {
@@ -115,14 +116,14 @@ public class Squad : NPCComponent
 
         // Determines the leader (closest to location) and follows them
         NewLeader(t);
-        members[0].agent.destination = t.position;
+        members[0].agent.SetDestination(t.position);
 
         // Follow the leader
         if (members.Count > 1)
         {
             for (int i = 1; i < members.Count; i++)
             {
-                members[i].agent.destination = members[0].transform.position;
+                members[i].agent.SetDestination(members[0].transform.position);
             }
         }
 
@@ -143,9 +144,22 @@ public class Squad : NPCComponent
     }
 
     // Squad wanders within an area
-    public void WanderInSquare(Bounds bounds)
+    public void WanderInSquare(CapturePoint point)
     {
+        // Pick a random point within the square for each member
+        // Members wander to their point
 
+        
+        for (int i = 0; i < members.Count; i++)
+        {
+            Vector3 position = point.RandomPoint();
+            //while (Vector3.Distance(position, members[i].transform.position) > 6f)
+            //{
+            //    position = point.RandomPoint();
+            //}
+
+            members[i].agent.SetDestination(position);
+        }
     }
 
     void Start()

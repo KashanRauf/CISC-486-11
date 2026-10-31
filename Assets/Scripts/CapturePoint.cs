@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CapturePoint : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class CapturePoint : MonoBehaviour
     public float maxHealth = 400f;
     public float captureHealth;
     public float captureRate;
+
+    private BoxCollider collider;
 
     HashSet<NPC> attackers = new HashSet<NPC>();
     HashSet<NPC> defenders = new HashSet<NPC>();
@@ -132,6 +136,21 @@ public class CapturePoint : MonoBehaviour
         captureRate = damage;
     }
 
+    public Vector3 RandomPoint()
+    {
+        Bounds bounds = this.collider.bounds;
+        //Debug.Log($"Wander in square: min ({bounds.min.x},{bounds.min.z}), max ({bounds.max.x},{bounds.max.z})");
+        Vector3 randomPoint = new Vector3(Random.Range(bounds.min.x, bounds.max.x), bounds.center.y, Random.Range(bounds.min.z, bounds.max.z));
+
+        // Turn that into a point on the NavMesh
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomPoint, out hit, 12f, 1);
+
+        //Debug.Log($"Calculated position: ({hit.position.x}, {hit.position.y}, {hit.position.z})");
+
+        return hit.position;
+    }
+
     private HashSet<NPC> GetTeamSet(NPC n)
     {
         if (n.squad.manager.team == Team.Defense)
@@ -168,6 +187,7 @@ public class CapturePoint : MonoBehaviour
 
     void Awake()
     {
+        collider = GetComponent<BoxCollider>();
         owner = Team.Defense;
         captureHealth = maxHealth;
         captureRate = 0;
@@ -177,10 +197,10 @@ public class CapturePoint : MonoBehaviour
     {
         captureHealth -= captureRate * Time.deltaTime;
 
-        if (captureRate > 0)
-        {
-            Debug.Log(captureHealth);
-        }
+        //if (captureRate > 0)
+        //{
+        //    Debug.Log(captureHealth);
+        //}
 
         ClampHealth();
 

@@ -17,6 +17,7 @@ public class SquadBehavior : MonoBehaviour
     // For Holding
     public CapturePoint toHold;
     public Bounds wanderZone;
+    public float wanderingTime;
 
     //public Stack<SquadStates> GetStates => states;
 
@@ -77,11 +78,6 @@ public class SquadBehavior : MonoBehaviour
     }
 
 
-    private bool AtCapturePoint()
-    {
-        return toHold.SquadAtPoint(squad);
-    }
-
     // Functions that combine previous method of pushing state and performing OnStateEnter
     public void SquadToObjective(Transform target)
     {
@@ -97,6 +93,8 @@ public class SquadBehavior : MonoBehaviour
     {
         PushState(SquadStates.Holding);
         toHold = point;
+        wanderZone = point.GetComponent<BoxCollider>().bounds;
+        wanderingTime = 0f;
         SquadToObjective(toHold.transform);
     }
 
@@ -116,7 +114,7 @@ public class SquadBehavior : MonoBehaviour
         SquadHolding(GameStateManager.GetObjectives[0]);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         SquadStates cur = CurrentState();
 
@@ -136,6 +134,7 @@ public class SquadBehavior : MonoBehaviour
                 // Check if squad has arrived at point otherwise continue going there
                 if (arrivedAtPoint)
                 {
+                    //Debug.Log("Arrived");
                     PopState();
                 } else
                 {
@@ -153,6 +152,18 @@ public class SquadBehavior : MonoBehaviour
                 break;
             case SquadStates.Holding:
                 // Wander the area, capturing/reclaiming the area while looking for potential battles
+                //Debug.Log(wanderingTime);
+                if (wanderingTime <= 0f)
+                {
+                    // Designate a new place to wander to
+                    Debug.Log("Squad will now wander");
+                    squad.WanderInSquare(toHold);
+                    wanderingTime = 5f;
+                }
+                else
+                {
+                    wanderingTime -= Time.deltaTime;
+                }
                 break;
             case SquadStates.Fleeing:
                 SquadFlee();
