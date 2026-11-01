@@ -11,13 +11,18 @@ public class SquadBehavior : MonoBehaviour
     public SquadStates lastState;
     
     // For general navigation
-    public Transform targetLocation;
+    public Vector3 targetLocation;
     public bool arrivedAtPoint;
 
     // For Holding
     public CapturePoint toHold;
     public Bounds wanderZone;
     public float wanderingTime;
+
+    // For battles:
+    public Vector3 battleLocation;
+    public bool readyForBattle;
+    public Combat combatInfo;
 
     //public Stack<SquadStates> GetStates => states;
 
@@ -79,15 +84,28 @@ public class SquadBehavior : MonoBehaviour
 
 
     // Functions that combine previous method of pushing state and performing OnStateEnter
-    public void SquadToObjective(Transform target)
+    public void SquadToObjective(Vector3 target)
     {
         PushState(SquadStates.ToObjective);
-        targetLocation = target;
+        targetLocation = target; // TODO: Maybe target location should also be a stack?
         arrivedAtPoint = false;
     }
 
-    public void SquadBattleEngage() { }
-    public void SquadBattle() { }
+    public void SquadBattleEngage(Combat combat)
+    {
+        SquadBattle(combat);
+
+        PushState(SquadStates.BattleEngage);
+        readyForBattle = false;
+        combatInfo = combat;
+        battleLocation = combatInfo.battleLocation;
+
+    }
+
+    public void SquadBattle(Combat combat) 
+    {
+        PushState(SquadStates.Battle);
+    }
 
     public void SquadHolding(CapturePoint point)
     {
@@ -95,7 +113,7 @@ public class SquadBehavior : MonoBehaviour
         toHold = point;
         wanderZone = point.GetComponent<BoxCollider>().bounds;
         wanderingTime = 0f;
-        SquadToObjective(toHold.transform);
+        SquadToObjective(toHold.transform.position);
     }
 
     public void SquadFlee() { }
@@ -105,13 +123,20 @@ public class SquadBehavior : MonoBehaviour
     {
         //Debug.Log("Instantiating squad's behavior");
         squad = GetComponentInParent<Squad>();
+        squad.behavior = this;
         states = new Stack<SquadStates>();
         //states.Push(SquadStates.Holding);
         //states.Push(SquadStates.ToObjective);
         //targetLocation = FindAnyObjectByType<PlayerController>().transform;
         states.Push(SquadStates.Idle);
-        Debug.Log("Objective: " + GameStateManager.GetObjectives[0]);
-        SquadHolding(GameStateManager.GetObjectives[0]);
+        //Debug.Log("Objective: " + GameStateManager.GetObjectives[0]);
+        int squadID = int.Parse(squad.name);
+        if (squadID == 2 && squad.manager.team == Team.Defense)
+        {
+            squadID -= 1;
+        }
+        SquadHolding(GameStateManager.GetObjectives[squadID - 1]);
+
     }
 
     void FixedUpdate()
@@ -131,6 +156,9 @@ public class SquadBehavior : MonoBehaviour
         switch (cur)
         {
             case SquadStates.ToObjective:
+                // Check if there's an enemy squad to fight
+                //Debug.Log($"{squad.name} is looking for a fight");
+                squad.DetectEnemies();
                 // Check if squad has arrived at point otherwise continue going there
                 if (arrivedAtPoint)
                 {
@@ -144,21 +172,31 @@ public class SquadBehavior : MonoBehaviour
             case SquadStates.BattleEngage:
                 // Both squads will find a midpoint and gather around there to fight
                 // If one of the squads is holding a point then they will fight there
-
-                SquadBattleEngage();
+                if (readyForBattle)
+                {
+                    PopState();
+                } else
+                {
+                    readyForBattle = squad.NavigateTo(battleLocation);
+                }
                 break;
             case SquadStates.Battle:
-                SquadBattle();
+                if (combatInfo.winner == null) break;
+                if (combatInfo.winner != squad)
+                {
+                    // Squad lost the fight and died
+                }
+                // Squad won and can carry on
+                Debug.Log("Someone won the fight");
+                PopState();
+
                 break;
             case SquadStates.Holding:
                 // Wander the area, capturing/reclaiming the area while looking for potential battles
-                //Debug.Log(wanderingTime);
                 if (wanderingTime <= 0f)
                 {
-                    // Designate a new place to wander to
-                    Debug.Log("Squad will now wander");
                     squad.WanderInSquare(toHold);
-                    wanderingTime = 5f;
+                    wanderingTime = 7f;
                 }
                 else
                 {

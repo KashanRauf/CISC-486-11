@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.AI;
+using Unity.VisualScripting;
 
 public class Squad : NPCComponent
 {
@@ -12,6 +13,9 @@ public class Squad : NPCComponent
     public List<NPC> GetMembers => members;
     public TeamManager manager;
     public SquadBehavior behavior;
+    public float battleEngageRadius = 24f;
+    public int enemyTeamLayer;
+
 
     public int MemberCount()
     {
@@ -53,7 +57,7 @@ public class Squad : NPCComponent
     {
         //Debug.Log($"Spawning a member for {manager.team}");x
         NPC n = Instantiate(prefab, this.transform).GetComponent<NPC>();
-        n.name = $"Squad member {members.Count}";
+        n.name = $"{this.manager.team} member {members.Count}";
 
         AddMember(n);
 
@@ -82,7 +86,7 @@ public class Squad : NPCComponent
     }
 
     // Determines the leader by checking who is closest to the objective
-    public void NewLeader(Transform t)
+    public void NewLeader(Vector3 loc)
     {
         float shortestDistance = float.MaxValue;
         int shortestIdx = -1;
@@ -90,9 +94,9 @@ public class Squad : NPCComponent
 
         for (int i = 0; i < members.Count; i++)
         {
-            if (members[i].HasArrived(t)) continue;
+            if (members[i].HasArrived(loc)) continue;
 
-            float distance = Vector3.Distance(t.position, members[i].transform.position);
+            float distance = Vector3.Distance(loc, members[i].transform.position);
             if (distance < shortestDistance)
             {
                 shortestDistance = distance;
@@ -110,13 +114,13 @@ public class Squad : NPCComponent
     }
 
     // The leader navigates to the location
-    public bool NavigateTo(Transform t)
+    public bool NavigateTo(Vector3 loc)
     {
         // TODO: Check that transform is a legal position
 
         // Determines the leader (closest to location) and follows them
-        NewLeader(t);
-        members[0].agent.SetDestination(t.position);
+        NewLeader(loc);
+        members[0].agent.SetDestination(loc);
 
         // Follow the leader
         if (members.Count > 1)
@@ -127,17 +131,14 @@ public class Squad : NPCComponent
             }
         }
 
-        if (SquadHasArrived(t)) return true;
-        //Debug.Log("Some squad members are still on the way");
-
-        return false;
+        return SquadHasArrived(loc);
     }
 
-    public bool SquadHasArrived(Transform t)
+    public bool SquadHasArrived(Vector3 loc)
     {
         foreach (var mem in members)
         {
-            if (!mem.HasArrived(t)) return false;
+            if (!mem.HasArrived(loc)) return false;
             //Debug.Log($"{mem.name} has arrived");
         }
         return true;
@@ -162,16 +163,72 @@ public class Squad : NPCComponent
         }
     }
 
+    // The midpoint of squad members to determine *roughly* where they are
+    public Vector3 MidpointLocation()
+    {
+        Vector3 location = Vector3.zero;
+
+        for (int i = 0; i < members.Count; i++)
+        {
+            location += members[i].transform.position;
+        }
+
+        location /= members.Count;
+
+        return location;
+    }
+
+    public void DetectEnemies()
+    {
+        // Checks what squads are in the engage radius
+        HashSet<Squad> nearby = new HashSet<Squad>();
+        Collider[] hits = Physics.OverlapSphere(members[0].transform.position, battleEngageRadius, enemyTeamLayer);
+
+        foreach (Collider hit in hits)
+        {
+            Debug.Log($"{this} detected a {hit.name}");
+            Squad ofDetected = hit.GetComponentInParent<NPC>()?.squad;
+            if (ofDetected == null) continue;
+            nearby.Add(ofDetected);
+        }
+        //Debug.Log($"Found {nearby.Count} possible squads to fight");
+
+        // Checks if any of those squads should be challenged and issues a challenge, if challenge declined then try the next
+        foreach (Squad s in nearby)
+        {
+            Debug.Log($"A challenge was issued from {this} to {s}");
+            bool requestAccepted = s.ChallengeRequest();
+            if (requestAccepted)
+            {
+
+                Combat.ChallengeAccepted(this, s);
+                break;
+            }
+        }
+    }
+
+    public bool ChallengeRequest()
+    {
+        // States where fights can happen: ToObjective, Holding
+        SquadBehavior.SquadStates cur = this.behavior.CurrentState();
+        Debug.Log($"{cur}");
+        return (this.behavior.CurrentState() == SquadBehavior.SquadStates.ToObjective || this.behavior.CurrentState() == SquadBehavior.SquadStates.Holding);
+    }
+
     void Start()
     {
-        //foreach(NPC m in members)
-        //{
-        //    m.squad = this;
-        //}
+        if (manager.team == Team.Defense)
+        {
+            enemyTeamLayer = (1 << 10);
+        } else
+        {
+            enemyTeamLayer = (1 << 9);
+        }
     }
 
     void Update()
     {
+        List<NPC> dead = new List<NPC>();
         // Handles deaths
         for (int i = 0; i < members.Count; i++)
         {
@@ -179,7 +236,7 @@ public class Squad : NPCComponent
             if (!members[i].IsAlive())
             {
                 Debug.Log($"Member {i} is dead");
-                members[i].squad = null;
+                //members[i].squad = null;
 
                 // TODO: Automatically adds any members since stats havent been made yet
                 //if (manager.team == Team.Defense)
@@ -187,9 +244,25 @@ public class Squad : NPCComponent
                 //    manager.casualties.Add(members[i]);
                 //}
 
+                dead.Add(members[i]);
                 members.RemoveAt(i);
                 deadMembers++;
             }
+
+            foreach (NPC n in dead)
+            {
+                members.Remove(n);
+                Destroy(n.gameObject);
+            }
         }
+
+        if (members.Count == 0)
+        {
+            manager.squads.Remove(this);
+            Destroy(this.gameObject);
+        }
+
+        // Squad gameobject follows its members
+        //if (members.Count > 0) this.gameObject.transform.position = MidpointLocation();
     }
 } 

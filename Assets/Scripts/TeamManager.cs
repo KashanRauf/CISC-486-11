@@ -12,7 +12,7 @@ public class TeamManager : MonoBehaviour
 
 
     [ContextMenu("Create Squad")]
-    public Squad CreateSquad()
+    public Squad CreateSquad(float xOffset, float zOffset)
     {
         Squad squad = Instantiate(
             Prefabs.prefabs.newSquad, 
@@ -20,12 +20,14 @@ public class TeamManager : MonoBehaviour
             .GetComponent<Squad>();
         squad.manager = this;
         squads.Add(squad);
-        
 
-        squad.name = $"{team} squad {squads.Count}";
+
+        //squad.name = $"{team} squad {squads.Count}";
+        squad.name = $"{squads.Count}";
+        squad.transform.position += new Vector3(xOffset, 0, zOffset);
         //squad.SpawnMember(Prefabs.prefabs.testEnemy);
 
-        List<GameObject> toSpawn = new List<GameObject>(new GameObject[] { Prefabs.prefabs.testEnemy, Prefabs.prefabs.testEnemy, Prefabs.prefabs.testEnemy });
+        List<GameObject> toSpawn = new List<GameObject>(new GameObject[] { Prefabs.prefabs.melee, Prefabs.prefabs.ranged, Prefabs.prefabs.medic });
         squad.SpawnMembers(toSpawn);
 
         return squad;
@@ -69,7 +71,23 @@ public class TeamManager : MonoBehaviour
     void Start()
     {
         //Debug.Log($"Spawning a squad for {team}");
-        CreateSquad();
+        if (team == Team.Attack)
+        {
+            CreateSquad(0, 0);
+            CreateSquad(0, -12);
+            CreateSquad(0, 12);
+            squads[0].behavior.SquadHolding(GameStateManager.GetObjectives[0]);
+            squads[1].behavior.SquadHolding(GameStateManager.GetObjectives[1]);
+            squads[2].behavior.SquadHolding(GameStateManager.GetObjectives[2]);
+        } else
+        {
+            CreateSquad(0, 0);
+            CreateSquad(-12, 0);
+            CreateSquad(12, 0);
+            squads[0].behavior.SquadHolding(GameStateManager.GetObjectives[0]);
+            squads[1].behavior.SquadHolding(GameStateManager.GetObjectives[1]);
+            squads[2].behavior.SquadHolding(GameStateManager.GetObjectives[2]);
+        }
 
         // Need to keep track of which members have died so that it's reflected in later battles
         //if (team == Team.Defense)

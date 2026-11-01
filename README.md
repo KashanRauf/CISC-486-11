@@ -10,6 +10,9 @@
 - Generative AI tools (LLMs, image generators, etc.) have not been used in any part of this game's development
 - All code, dialogue, 2D assets, and 3D assets are made by humans and are either made by us or come from a licensed asset pack
 
+## Prototype Demo Video:
+- https://drive.google.com/drive/u/0/folders/1FVXWIzZT6Bts168tkay9wKoJkiJ6zOAK
+
 ## Setup Instructions 
 Unity project files
 1. Install Unity Hub or update an existing installation, then open it
