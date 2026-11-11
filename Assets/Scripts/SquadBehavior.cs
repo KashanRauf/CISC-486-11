@@ -14,4 +14,6 @@ public class SquadBehavior : MonoBehaviour
         Fleeing,        // For enemies, all actions cease and they run away and escape the ship
         Celebrate,      // When battle ends, only for the team that remains
     }
+
+    public SquadStates CurrentState { get; private set; }
 }

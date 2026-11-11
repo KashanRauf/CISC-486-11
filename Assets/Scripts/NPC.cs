@@ -12,9 +12,6 @@ public class NPC : NPCComponent
     public Squad squad;
 
     public NavMeshAgent agent;
-<<<<<<< Updated upstream
-    //public Animator anim;
-=======
 
     // Combat stats
     public CombatClass primary;
@@ -30,7 +27,6 @@ public class NPC : NPCComponent
     public Animator animator;
     private SquadBehavior squadBehavior;
 
->>>>>>> Stashed changes
     public Vector3 direction { get; private set; } = Vector3.forward;
     public Vector3 Position => transform.position;
 
@@ -57,9 +53,6 @@ public class NPC : NPCComponent
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
-        
-=======
         squadBehavior = GetComponentInParent<SquadBehavior>();
         // For triggering animations
         if (health <= 0)
@@ -67,7 +60,7 @@ public class NPC : NPCComponent
             animator.SetTrigger("death");
         }
 
-        if (squadBehavior.CurrentState() == SquadBehavior.SquadStates.Battle)
+        if (squadBehavior.CurrentState == SquadBehavior.SquadStates.Battle)
         {
             animator.SetTrigger("attack");
         }
@@ -99,7 +92,6 @@ public class NPC : NPCComponent
         Repair,
         Brute,
         Enchanter
->>>>>>> Stashed changes
     }
 
     
