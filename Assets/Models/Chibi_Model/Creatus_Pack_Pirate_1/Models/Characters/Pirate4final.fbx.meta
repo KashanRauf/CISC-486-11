@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4be140918776546458988e9aeb7e32e9
+guid: 7ed9f2de3a5a0a442a9c27dcaf93fe8c
 ModelImporter:
   serializedVersion: 24600
   internalIDToNameTable: []
@@ -102,11 +102,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1bd179f2a7df48347a40249b900950b3, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
