@@ -79,4 +79,9 @@ public class SettingsMenu : ManagedUI
     {
         back.onClick.AddListener(() => UIManager.ShowLast());
     }
+
+    public void CloseSettings()
+    {
+        UIManager.CloseCurrent();
+    }
 }
