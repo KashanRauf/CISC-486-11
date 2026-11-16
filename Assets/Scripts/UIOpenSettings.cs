@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIOpenSettings : MonoBehaviour
 {
@@ -16,5 +17,20 @@ public class UIOpenSettings : MonoBehaviour
         Debug.Log("Open Map");
 
         mapPanel.SetActive(true);
+    }
+
+    public void GoToSampleScene()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void GoToStartMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void GoToHomeScene()
+    {
+        SceneManager.LoadScene("HomeScene");
     }
 }
