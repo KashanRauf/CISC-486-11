@@ -18,8 +18,8 @@ public static class SaveManager
 
         CurrentSave.meleeCount = 3;
         CurrentSave.rangedCount = 3;
-        CurrentSave.medicCount = 1;
-        CurrentSave.repairCount = 1;
+        CurrentSave.medicCount = 3;
+        CurrentSave.repairCount = 0;
 
         SaveGame();
     }

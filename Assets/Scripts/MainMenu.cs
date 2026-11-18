@@ -9,6 +9,9 @@ public class MainMenu : ManagedUI
         Debug.Log("New Game");
         // If save data exists, then ask for confirmation before starting with a popup box
         // Else just start a new one
+
+        SaveManager.CreateNewGame();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -17,6 +20,16 @@ public class MainMenu : ManagedUI
         Debug.Log("Continue Game");
         // Button disabled if there isn't any save data
         // Otherwise should go to the beginning of the next uncompleted level
+
+        if (SaveManager.SaveExists())
+        {
+            SaveManager.LoadGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            Debug.Log("No save data found.");
+        }
     }
 
     public void OpenSettings()
