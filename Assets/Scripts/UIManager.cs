@@ -113,5 +113,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Close the currently active menu (Settings menu)
+    public static void CloseCurrent()
+    {
+        if (singleton.activeUI == null) return;
+
+        singleton.activeUI.Hide();
+        singleton.activeUI = null;
+        singleton.history.Clear();
+    }
+
 
 }

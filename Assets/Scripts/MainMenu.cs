@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 // Basic menu functions
 public class MainMenu : ManagedUI
 {
+    
     public void StartNewGame()
     {
         Debug.Log("New Game");
@@ -11,8 +12,7 @@ public class MainMenu : ManagedUI
         // Else just start a new one
 
         SaveManager.CreateNewGame();
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("HomeScene");
     }
 
     public void ContinueGame()
@@ -24,7 +24,7 @@ public class MainMenu : ManagedUI
         if (SaveManager.SaveExists())
         {
             SaveManager.LoadGame();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("HomeScene");
         }
         else
         {
