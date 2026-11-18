@@ -4,13 +4,15 @@ using UnityEngine.SceneManagement;
 // Basic menu functions
 public class MainMenu : ManagedUI
 {
+    
     public void StartNewGame()
     {
         Debug.Log("New Game");
         // If save data exists, then ask for confirmation before starting with a popup box
         // Else just start a new one
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene("SampleScene");
+
+        SaveManager.CreateNewGame();
+        SceneManager.LoadScene("HomeScene");
     }
 
     public void ContinueGame()
@@ -18,7 +20,16 @@ public class MainMenu : ManagedUI
         Debug.Log("Continue Game");
         // Button disabled if there isn't any save data
         // Otherwise should go to the beginning of the next uncompleted level
-        SceneManager.LoadScene("HomeScene");
+
+        if (SaveManager.SaveExists())
+        {
+            SaveManager.LoadGame();
+            SceneManager.LoadScene("HomeScene");
+        }
+        else
+        {
+            Debug.Log("No save data found.");
+        }
     }
 
     public void OpenSettings()
