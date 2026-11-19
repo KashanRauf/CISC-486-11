@@ -834,6 +834,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 52.663
       objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1736158670}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PurchaseMoraleItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Wine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1095,6 +1127,38 @@ PrefabInstance:
     - target: {fileID: 9066703112626954465, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 52.663
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1736158670}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PurchaseMoraleItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Beer
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4176,6 +4240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
   coinText: {fileID: 1414733336}
+  moraleSlider: {fileID: 1758384569}
 --- !u!4 &1736158671
 Transform:
   m_ObjectHideFlags: 0
@@ -4666,6 +4731,38 @@ PrefabInstance:
     - target: {fileID: 9066703112626954465, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 52.663
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1736158670}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PurchaseUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: WeaponStorage
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5302,6 +5399,38 @@ PrefabInstance:
     - target: {fileID: 9066703112626954465, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 52.663
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1736158670}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PurchaseUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: FoodStorage
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196830365428591490, guid: fecbe472d094bb746993d7e8fd2d6fdc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

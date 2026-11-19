@@ -13,5 +13,5 @@ public class SaveData
     public int repairCount;
 
     public int foodStorageLevel;
-    public int WeaponStorageLevel;
+    public int weaponStorageLevel;
 }

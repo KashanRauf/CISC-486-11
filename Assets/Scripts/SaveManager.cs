@@ -22,7 +22,7 @@ public static class SaveManager
         CurrentSave.repairCount = 0;
 
         CurrentSave.foodStorageLevel = 0;
-        CurrentSave.WeaponStorageLevel = 0;
+        CurrentSave.weaponStorageLevel = 0;
 
         SaveGame();
     }
