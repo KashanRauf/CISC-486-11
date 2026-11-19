@@ -29,6 +29,25 @@ public class NPC : NPCComponent
         return health > 0;
     }
 
+    public int GetCoinReward()
+    {
+        switch (primary)
+        {
+            case CombatClass.Melee:
+            case CombatClass.Ranged:
+                return 60;
+            
+            case CombatClass.Medic:
+                return 30;
+
+            case CombatClass.Brute:
+                return 120;
+            
+            default:
+                return 0;
+        }
+    }
+
     public void AddToSquad(Squad s)
     {
         s.GetMembers.Add(this);
