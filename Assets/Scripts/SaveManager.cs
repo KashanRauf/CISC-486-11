@@ -111,5 +111,18 @@ public static class SaveManager
         }
         SaveGame();
     }
+        
+    public static void SetLevel(int level)
+    {
+        if (CurrentSave == null)
+        {
+            return;
+        }
+
+        CurrentSave.currentLevel = Mathf.Clamp(level, 0, 4);
+        SaveGame();
+    }
+
 }
+
 
