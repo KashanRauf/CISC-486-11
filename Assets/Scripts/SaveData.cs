@@ -11,4 +11,7 @@ public class SaveData
     public int rangedCount;
     public int medicCount;
     public int repairCount;
+
+    public int foodStorageLevel;
+    public int WeaponStorageLevel;
 }
