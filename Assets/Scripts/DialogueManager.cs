@@ -12,6 +12,7 @@ public class DialogueManager : ManagedUI
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI activeDialogue;
     public ChangingPortrait portrait;
+    public System.Action onDialogueFinished;
 
 
     // For making the "typing" effect of the text feel nicer
@@ -105,6 +106,7 @@ public class DialogueManager : ManagedUI
     {
         //Debug.Log("Conversation ended");
         this.Hide();
+        onDialogueFinished?.Invoke();
     }
 
     public override void Initialize() {}
