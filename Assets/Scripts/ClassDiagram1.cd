@@ -34,6 +34,11 @@
         <Position X="0.18" Y="0.062" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="cg" Type="ChangingCG">
+    <MemberNameLabel ManuallyPlaced="true">
+      <Position X="0.25" Y="0.15" />
+    </MemberNameLabel>
+  </AssociationLine>
     <TypeIdentifier>
       <HashCode>AARAAACCACAAARBAAAAAAAAABAAAAAAAAABAAACAABA=</HashCode>
       <FileName>Assets\Scripts\DialogueManager.cs</FileName>
@@ -74,6 +79,16 @@
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Field Name="portraits" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ChangingCG">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCgAAAAAABAAAAAAAAAAAAAAAAAAAIAAABA=</HashCode>
+      <FileName>Assets\Scripts\ChangingCG.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="cgs" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="DialogueTrigger">

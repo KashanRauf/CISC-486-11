@@ -3,87 +3,104 @@
     {
       "speaker": "",
       "text": "Your commands have basically killed everyone.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be1_0"
     },
     {
       "speaker": "",
       "text": "The only choice you made is runnning away from the battlefield, and well, you did make it.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be1_0"
     },
     {
       "speaker": "",
       "text": "But deep down in your heart, you know the remaining crew members hate you, right?",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be2_0"
     },
     {
       "speaker": "",
       "text": "You thought you could wait until the time, when you rise again, then you could have regained their trust.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be2_0"
     },
     {
       "speaker": "",
       "text": "However.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be2_0"
     },
     {
       "speaker": "",
       "text": "...",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be3_0"
     },
     {
       "speaker": "Captain",
       "text": "AY!! WHERE ARE YOU TAKING ME TO!!",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be3_0"
     },
     {
       "speaker": "",
       "text": "...",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be3_0"
     },
     {
       "speaker": "Captain",
       "text": "UNTIE ME!!",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be3_0"
     },
     {
       "speaker": "Ranged",
       "text": "Oh gosh, shut your mouth.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be3_0"
     },
     {
       "speaker": "Captain",
       "text": "UNTIE ME!! I DON'T WANT TO DIE!!",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be4_0"
     },
     {
       "speaker": "Ranged",
       "text": "Did you not think of that when our hearties died for you?!!!",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be4_0"
     },
     {
       "speaker": "Medic",
       "text": "Merlin, there is no use telling him that, he is too far gone.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be4_0"
     },
     {
       "speaker": "Medic",
       "text": "Just let him go, he is not worth it.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be4_0"
     },
     {
       "speaker": "Captain",
       "text": "WAIT!!!!",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be5_0"
     },
     {
       "speaker": "",
       "text": "And you feel the cold embrace of the sea as your body sinks.",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be6_0"
     },
     {
       "speaker": "",
       "text": "BAD ENDING: REAP WHAT YOU SOW",
-      "portrait": ""
+      "portrait": "",
+      "cg": "be6_0"
     }
   ]
 }
