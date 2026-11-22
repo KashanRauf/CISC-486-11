@@ -44,6 +44,18 @@ public class PlayerController : MonoBehaviour
 
     //}
 
+    private void OpenCommandMenu(InputAction.CallbackContext context)
+    {
+        Debug.Log("Opened the command menu");
+        UIManager.Show<CommandMenu>();
+    }
+
+    private void OpenPauseMenu(InputAction.CallbackContext context)
+    {
+        Debug.Log("Opened the pause menu");
+        UIManager.Show<SettingsMenu>();
+    }
+
     private void Awake()
     {
         //body = this.GetComponent<Rigidbody>();
@@ -55,13 +67,19 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         actions.Player.Jump.started += PlayerJump;
+        actions.Player.CommandMenu.started += OpenCommandMenu;
+        actions.Player.Pause.started += OpenPauseMenu;
         move = actions.Player.Move;
+
         actions.Player.Enable();
     }
 
     private void OnDisable()
     {
         actions.Player.Jump.started -= PlayerJump;
+        actions.Player.CommandMenu.started -= OpenCommandMenu;
+        actions.Player.Pause.started -= OpenPauseMenu;
+
         actions.Player.Disable();
     }
 

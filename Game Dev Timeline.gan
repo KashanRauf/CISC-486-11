@@ -44,7 +44,7 @@
             <notes><![CDATA[Proposal is mostly done, just need to formalize writing and do the Gantt chart]]></notes>
             <depend id="1" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="1" uid="34e2cd6f09104fb6951b16ebcd1d8d5c" name="Prototype- Vertical Slice" meeting="false" start="2026-09-22" duration="37" complete="30" expand="true">
+        <task id="1" uid="34e2cd6f09104fb6951b16ebcd1d8d5c" name="Prototype- Vertical Slice" meeting="false" start="2026-09-22" duration="37" complete="73" expand="true">
             <notes><![CDATA[The prototype should be a nearly completed tutorial level. This means that most of the remaining work when we are done is finishing the remaining levels, adding new races of enemies that mostly use the existing subclasses, polishing UI and art stuff. Polishing the gameplay and NPC behaviors is important too.
 
 This means we need:
@@ -57,11 +57,11 @@ This means we need:
 - The player's commanding abilities and UI, and a way for crew members to fight back against the enemies
 - Scripted events that trigger for win/loss conditions
 ]]></notes>
-            <task id="9" uid="be445beca32f4b6ab7e67c163c078f24" name="Deliverable for demo submission" meeting="false" start="2026-10-14" duration="15" complete="0" expand="true"/>
+            <task id="9" uid="be445beca32f4b6ab7e67c163c078f24" name="Deliverable for demo submission" meeting="false" start="2026-10-14" duration="15" complete="100" expand="true"/>
             <task id="2" uid="f408a62f5b0447ad80e0af408d1ac164" name="Assets for world environment" color="#ff33ff" meeting="false" start="2026-09-22" duration="8" complete="100" expand="true">
                 <depend id="3" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="3" uid="9e73c43b0f1346078f6e6d15c809b9c8" name="Create world scene" color="#33ff33" meeting="false" start="2026-09-30" duration="15" complete="0" expand="true">
+            <task id="3" uid="9e73c43b0f1346078f6e6d15c809b9c8" name="Create world scene" color="#33ff33" meeting="false" start="2026-09-30" duration="15" complete="100" expand="true">
                 <notes><![CDATA[This is the level that the game is played in, including but not limited to:
 - The ship and its objectives
 - Textures for the skybox
@@ -83,7 +83,7 @@ What abilities do these jobs have? Do certain jobs handle certain assignments be
                 <depend id="6" type="1" difference="0" hardness="Strong"/>
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="7" uid="171958dcfaff4f5db09d99215c2a320f" name="Assets for interactives and characters" color="#ff33ff" meeting="false" start="2026-09-30" duration="15" complete="60" expand="true">
+            <task id="7" uid="171958dcfaff4f5db09d99215c2a320f" name="Assets for interactives and characters" color="#ff33ff" meeting="false" start="2026-09-30" duration="15" complete="80" expand="true">
                 <notes><![CDATA[- Objectives on the ship
 - Cannons and other defenses
 - Characters: The captain, ally and enemy NPCs for each class, for now we only need pirate NPCs. 
@@ -96,18 +96,18 @@ the parrot and other stuff maybe?
             </task>
             <task id="8" uid="1e239c000f6b44beaf6cd653e3d47eae" name="Build tutorial level" color="#33ff33" meeting="false" start="2026-10-15" duration="14" complete="0" expand="true"/>
             <task id="19" uid="fb1e8ba410aa48d682d1476dfd80cd1e" name="SFX and animations" color="#ff33ff" meeting="false" start="2026-10-15" duration="8" complete="0" expand="true"/>
-            <task id="5" uid="754e8abd6b104b4088f03c8d05675761" name="Program basic subsystems" color="#ff3333" meeting="false" start="2026-09-22" duration="12" complete="90" expand="true">
+            <task id="5" uid="754e8abd6b104b4088f03c8d05675761" name="Program basic subsystems" color="#ff3333" meeting="false" start="2026-09-22" duration="12" complete="100" expand="true">
                 <notes><![CDATA[x Movement
 x UI/settings
 x Dialogue system
 x Level management
 x Scripted events
 
-OOP style system for managing NPCs
+x OOP style system for managing NPCs
 x Cutscenes and camera will use animators/timeline feature]]></notes>
                 <depend id="6" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="6" uid="b56c1c127b944753b9720564d66562ba" name="Combat and navigation for NPCs" color="#ff3333" meeting="false" start="2026-10-04" duration="19" complete="0" expand="true"/>
+            <task id="6" uid="b56c1c127b944753b9720564d66562ba" name="Combat and navigation for NPCs" color="#ff3333" meeting="false" start="2026-10-04" duration="19" complete="90" expand="true"/>
             <task id="10" uid="227ef9c53d724735b956bb03d14c5b19" name="Polish demo" meeting="false" start="2026-10-24" duration="5" complete="0" expand="true">
                 <notes><![CDATA[- If we can also make the opening cutscene that would be nice
 ]]></notes>
@@ -116,13 +116,13 @@ x Cutscenes and camera will use animators/timeline feature]]></notes>
                 <depend id="11" type="2" difference="0" hardness="Strong"/>
             </task>
         </task>
-        <task id="11" uid="97d2495811cf4a4f8e512bb031d54293" name="Final version" meeting="false" start="2026-10-29" duration="23" complete="0" expand="true">
-            <task id="12" uid="b453fe97274a4d8d9d70eb86d0341162" name="Create new enemies, classes, and capabilities" color="#ffff66" meeting="false" start="2026-10-29" duration="5" complete="0" expand="true">
+        <task id="11" uid="97d2495811cf4a4f8e512bb031d54293" name="Final version" meeting="false" start="2026-10-29" duration="23" complete="12" expand="true">
+            <task id="12" uid="b453fe97274a4d8d9d70eb86d0341162" name="Create new enemies, classes, and capabilities" color="#ffff66" meeting="false" start="2026-10-29" duration="5" complete="80" expand="true">
                 <depend id="15" type="1" difference="0" hardness="Strong"/>
             </task>
             <task id="15" uid="b48f07c8b71c4e09b5182a28cd929f38" name="Assets for new NPCs and interactibles" color="#ff33ff" meeting="false" start="2026-10-29" duration="11" complete="0" expand="true"/>
             <task id="14" uid="65911d944e1e47ba8260ead38c53cf0c" name="Balance and difficulty scaling" color="#ffff66" meeting="false" start="2026-11-08" duration="5" complete="0" expand="true"/>
-            <task id="16" uid="39115cac0b364ba89f5018f6091621c8" name="Plan economy and shop" color="#ffff66" meeting="false" start="2026-11-03" duration="5" complete="0" expand="true">
+            <task id="16" uid="39115cac0b364ba89f5018f6091621c8" name="Plan economy and shop" color="#ffff66" meeting="false" start="2026-11-03" duration="5" complete="100" expand="true">
                 <depend id="18" type="1" difference="0" hardness="Strong"/>
             </task>
             <task id="18" uid="8d2751713a0649c0883e0012b1a26276" name="Currency drops, shop, scoring system" color="#ff3333" meeting="false" start="2026-11-03" duration="6" complete="0" expand="true"/>

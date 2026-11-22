@@ -91,7 +91,7 @@ public class Combat : MonoBehaviour
         // Make them fight
         foreach (NPC fighter in fighters)
         {
-            Debug.Log($"{fighter} must wait {fighter.untilNextAction}");
+            //Debug.Log($"{fighter} must wait {fighter.untilNextAction}");
             if (fighter.IsAlive() && fighter.untilNextAction <= 0)
             {
                 //Debug.Log(fighter.numTargets);

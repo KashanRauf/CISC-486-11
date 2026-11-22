@@ -13,6 +13,9 @@ public class Prefabs : MonoBehaviour
     public GameObject newSquad;
     public GameObject combat;
 
+    public GameObject squadSelect;
+    public GameObject memberChibi;
+
     public Prefabs GetPrefabs => prefabs;
 
     void Awake()

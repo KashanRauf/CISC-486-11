@@ -16,6 +16,7 @@ public class SquadBehavior : MonoBehaviour
 
     // For Holding
     public CapturePoint toHold;
+    public string locationName;
     public Bounds wanderZone;
     public float wanderingTime;
 
@@ -39,14 +40,14 @@ public class SquadBehavior : MonoBehaviour
 
     public void PushState(SquadStates newState)
     {
-        Debug.Log($"The state {newState} has been pushed on top of {states.Peek()}");
+        //Debug.Log($"The state {newState} has been pushed on top of {states.Peek()}");
         states.Push(newState);
     }
 
     public SquadStates PopState()
     {
         SquadStates popped = states.Pop();
-        Debug.Log($"The state {popped} has been popped, new active state: {states.Peek()}");
+        //Debug.Log($"The state {popped} has been popped, new active state: {states.Peek()}");
         return popped;
     }
 
@@ -57,6 +58,7 @@ public class SquadBehavior : MonoBehaviour
     }
 
 
+    // TODO: Resets data fields
     public void OnStateExit(SquadStates old)
     {
         switch (old)

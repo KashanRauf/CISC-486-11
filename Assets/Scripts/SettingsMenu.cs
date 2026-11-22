@@ -30,7 +30,7 @@ public class SettingsMenu : ManagedUI
         {
             options.Add(resolutions[i].width + " x " + resolutions[i].height);
 
-            Debug.Log(resolutions[i] + ", " + Screen.currentResolution + ", " + (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height));
+            //Debug.Log(rqesolutions[i] + ", " + Screen.currentResolution + ", " + (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height));
 
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {

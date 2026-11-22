@@ -9,6 +9,7 @@ public class CapturePoint : MonoBehaviour
     public float maxHealth = 400f;
     public float captureHealth;
     public float captureRate;
+    public string name;
 
     private BoxCollider collider;
 
@@ -60,7 +61,7 @@ public class CapturePoint : MonoBehaviour
     {
         owner = Team.Attack;
         captureHealth = maxHealth / 2;
-        Debug.Log("Attackers have claimed the capture point");
+        Debug.Log($"Attackers have claimed the {name}");
         CalculateCaptureProgress();
     }
 
@@ -68,7 +69,7 @@ public class CapturePoint : MonoBehaviour
     {
         owner = Team.Defense;
         captureHealth = maxHealth;
-        Debug.Log("Defenders have reclaimed the capture point");
+        Debug.Log($"Defenders have reclaimed the {name}");
         CalculateCaptureProgress();
     }
 
@@ -169,7 +170,7 @@ public class CapturePoint : MonoBehaviour
 
         CalculateCaptureProgress();
 
-        Debug.Log("An NPC has entered the point, capture rate: " + captureRate);
+        //Debug.Log("An NPC has entered the point, capture rate: " + captureRate);
     }
 
     private void OnTriggerExit(Collider other)
@@ -182,7 +183,7 @@ public class CapturePoint : MonoBehaviour
         }
 
         CalculateCaptureProgress();
-        Debug.Log("An NPC has left the point, capture rate: " + captureRate);
+        //Debug.Log("An NPC has left the point, capture rate: " + captureRate);
     }
 
     void Awake()

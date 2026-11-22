@@ -16,6 +16,11 @@ public class GameStateManager : MonoBehaviour
 
     public static CapturePoint[] GetObjectives => GSM.Objectives;
 
+    public static TeamManager GetPlayerTeam => GSM.PlayerTeam;
+
+    public static TeamManager GetEnemyTeam => GSM.EnemyTeam;
+    
+
     private void Awake()
     {
         GSM = this;
@@ -43,8 +48,12 @@ public class GameStateManager : MonoBehaviour
         switch (g)
         {
             case GameState.LEVELSTART:
+                // Do any preconditions to starting the level like playing a cutscene or dialogue
+                SetGameState(GameState.CUTSCENE);
                 break;
             case GameState.CUTSCENE:
+                // Wait until the cutscene or dialogue ends
+                SetGameState(GameState.BATTLE);
                 break;
             case GameState.PAUSE:
                 break;

@@ -10,8 +10,8 @@ public class UIManager : MonoBehaviour
     // Optional default, could be null, the HUD, the Shop UI, etc.
     [SerializeField] private ManagedUI defaultUI;
 
-    // Could make it SerializeField but not needed since Start() will populate the list
-    private ManagedUI[] uis;
+    // Start() will populate the list
+    [SerializeField] private ManagedUI[] uis;
 
     private ManagedUI activeUI;
 
@@ -119,7 +119,7 @@ public class UIManager : MonoBehaviour
         if (singleton.activeUI == null) return;
 
         singleton.activeUI.Hide();
-        singleton.activeUI = null;
+        singleton.activeUI = singleton.defaultUI;
         singleton.history.Clear();
     }
 
