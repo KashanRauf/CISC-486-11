@@ -12,6 +12,7 @@ public class DialogueManager : ManagedUI
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI activeDialogue;
     public ChangingPortrait portrait;
+    public ChangingCG cg;
     public System.Action onDialogueFinished;
 
 
@@ -66,7 +67,7 @@ public class DialogueManager : ManagedUI
             return;
         }
         
-        // Gets the next sentence and updates the speaker name, text, and portrait
+        // Gets the next sentence and updates the speaker name, text, portrait, and cg (if applicable)
         Dialogue cur = dialogue.Dequeue();
         speakerName.text = cur.speaker;
         // activeDialogue.text = cur.text; // Directly place text without typing effect
@@ -74,6 +75,16 @@ public class DialogueManager : ManagedUI
         StopAllCoroutines(); // Terminates typing if player skips before it ends
         StartCoroutine(TypeSentence(cur.text, 1));
         portrait.SetByName(cur.portrait);
+        
+        if (portrait != null && !string.IsNullOrEmpty(cur.portrait))
+        {
+            portrait.SetByName(cur.portrait);
+        }
+
+        if (cg != null && !string.IsNullOrEmpty(cur.cg))
+        {
+            cg.SetByName(cur.cg);
+        }
 
     }
 

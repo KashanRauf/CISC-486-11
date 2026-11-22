@@ -746,6 +746,7 @@ MonoBehaviour:
   speakerName: {fileID: 1386240275}
   activeDialogue: {fileID: 836678971}
   portrait: {fileID: 1912167416}
+  cg: {fileID: 0}
 --- !u!1 &188055614
 GameObject:
   m_ObjectHideFlags: 0
@@ -99272,6 +99273,8 @@ MonoBehaviour:
   portraits:
   - {fileID: -7625815280145453024, guid: 69cd2ceb5e2f7834d9c42f2649483917, type: 3}
   - {fileID: 5629878070118603106, guid: f9203929342bed5458a5ff3e970bd8a7, type: 3}
+  - {fileID: -4567218002913039484, guid: 3053ef999c8cd744abe634ab0fdcc6ad, type: 3}
+  - {fileID: 3837697973985258911, guid: 3a395c5b8035a7f4f8c1e2c4bd6999b2, type: 3}
 --- !u!1 &1924382178
 GameObject:
   m_ObjectHideFlags: 0
