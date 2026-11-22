@@ -8,5 +8,6 @@ public class Dialogue
     public string speaker;
     public string text;
     public string portrait;
+    public string cg;
 
 } 

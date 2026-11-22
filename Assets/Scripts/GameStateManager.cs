@@ -1,11 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager GSM;
     
     public GameState State { get; private set; }
+
+    private bool stateInitialized = false;
+    private bool levelCompleted = false;
 
     [SerializeField] TeamManager PlayerTeam;
     [SerializeField] TeamManager EnemyTeam;
@@ -28,6 +32,18 @@ public class GameStateManager : MonoBehaviour
 
     void Start()
     {
+        if (SaveManager.CurrentSave == null)
+        {
+            if (SaveManager.SaveExists())
+            {
+                SaveManager.LoadGame();
+            }
+            else
+            {
+                Debug.LogWarning("No save file found)");
+            }
+            Debug.Log("Starting wave W" + SaveManager.CurrentSave.currentLevel + " with " + SaveManager.CurrentSave.money + " money and " + SaveManager.CurrentSave.currentLevel);
+        }
         // TODO: Dialogue and cinematic camera, automatically transition to LEVELSTART when done
         //SetGameState(GameState.CUTSCENE);
 
@@ -38,11 +54,23 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (State == GameState.BATTLE)
+        {
+            if (AllObjectivesCaptured())
+            {
+                SetGameState(GameState.DEFEAT);
+            }
+        }
         
     }
 
     public void SetGameState(GameState g)
     {
+        if (stateInitialized && State == g)
+        {
+            return;
+        }
+        stateInitialized = true;
         this.State = g;
         // Applies changes caused, e.g. opening the pause menu
         switch (g)
@@ -60,6 +88,16 @@ public class GameStateManager : MonoBehaviour
             case GameState.BATTLE:
                 break;
             case GameState.VICTORY:
+                if (!levelCompleted && SaveManager.CurrentSave != null)
+                {
+                    int currentLevel = SaveManager.CurrentSave.currentLevel;
+                    if (currentLevel < 4)
+                    {
+                        levelCompleted = true;
+                        SaveManager.SetLevel(currentLevel + 1);
+                        Debug.Log("Level completed, saving progress. Next level: " + (currentLevel + 1));
+                    }
+                }
                 break;
             case GameState.DEFEAT:
                 break;
@@ -71,6 +109,29 @@ public class GameStateManager : MonoBehaviour
 
         OnGameStateChange?.Invoke(g);
 
+    }
+
+    public void OpenShop()
+    {
+        SetGameState(GameState.SHOP);
+        SceneManager.LoadScene("ShopScene");
+    }
+
+    private bool AllObjectivesCaptured()
+    {
+        if(Objectives == null || Objectives.Length == 0)
+        {
+            return false;
+        }
+
+        foreach (CapturePoint objective in Objectives)
+        {
+            if(objective == null || objective.owner != Team.Attack)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

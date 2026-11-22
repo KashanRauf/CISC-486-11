@@ -244,6 +244,10 @@ public class Squad : NPCComponent
                 //    manager.casualties.Add(members[i]);
                 //}
 
+                if (manager.team == Team.Attack)
+                {
+                    SaveManager.AddMoney(members[i].GetCoinReward());
+                }
                 dead.Add(members[i]);
                 members.RemoveAt(i);
                 deadMembers++;
