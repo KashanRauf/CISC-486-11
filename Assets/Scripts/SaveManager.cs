@@ -4,12 +4,45 @@ using UnityEngine;
 public static class SaveManager
 {
     public static SaveData CurrentSave;
+    private static int pendingBattleCoins = 0; // variable and methods to save money only if round finishes to avoid cheating
+
+    public static void StartBattle()
+    {
+        pendingBattleCoins = 0;
+    }
+    public static void AddBattleReward(int amount)
+    {
+        if (amount <- 0)
+            return;
+        
+        pendingBattleCoins += amount;
+        Debug.Log("Battle reward: +" + amount + " coins. Pending total: " + pendingBattleCoins);
+    }
+    public static void CommitBattleRewards()
+    {
+        if (CurrentSave == null) 
+            return;
+        
+        CurrentSave.money += pendingBattleCoins;
+
+        Debug.Log("Victory! Saved " + pendingBattleCoins +
+              " earned coins.");
+
+        pendingBattleCoins = 0;
+        SaveGame();
+    }
+
+    public static void DiscardBattleRewards()
+    {
+        pendingBattleCoins = 0;
+    }
 
     private static string SavePath =>
         Path.Combine(Application.persistentDataPath, "save.json");
 
     public static void CreateNewGame()
     {
+        DiscardBattleRewards();
         CurrentSave = new SaveData();
 
         CurrentSave.currentLevel = 0;
@@ -34,6 +67,7 @@ public static class SaveManager
 
     public static SaveData LoadGame()
     {
+        DiscardBattleRewards();
         string json = File.ReadAllText(SavePath);
         CurrentSave = JsonUtility.FromJson<SaveData>(json);
 

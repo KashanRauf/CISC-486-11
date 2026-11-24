@@ -119,12 +119,17 @@ public class GameStateManager : MonoBehaviour
             case GameState.PAUSE:
                 break;
             case GameState.BATTLE:
+                SaveManager.StartBattle();
+                Debug.Log("Battle started. Temporary coin rewards reset.");
                 break;
             
             case GameState.VICTORY:
                 if (!levelCompleted && SaveManager.CurrentSave != null)
                 {
                     levelCompleted = true;
+
+                    // Permanently save coins earned during this battle.
+                    SaveManager.CommitBattleRewards();
 
                     int currentLevel = SaveManager.CurrentSave.currentLevel;
 
@@ -148,6 +153,8 @@ public class GameStateManager : MonoBehaviour
                 break;
 
             case GameState.DEFEAT:
+                SaveManager.DiscardBattleRewards();
+                Debug.Log("Battle lost. Temporary coin rewards discarded.");
                 break;
             case GameState.SHOP:
                 break;
@@ -165,6 +172,13 @@ public class GameStateManager : MonoBehaviour
     {
         Debug.Log("TEST: Manually triggering victory");
         SetGameState(GameState.VICTORY);
+    }
+
+    [ContextMenu("TEST - Earn 60 Battle Coins")]
+    private void TestBattleCoins()
+    {
+        SaveManager.AddBattleReward(60);
+        Debug.Log("TEST: Added 60 temporary battle coins.");
     }
     #endif
 
