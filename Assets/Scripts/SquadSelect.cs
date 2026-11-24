@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SquadSelect : MonoBehaviour
 {
-    [SerializeField] TMPro.TextMeshProUGUI title;
+    [SerializeField] TextMeshProUGUI title;
     [SerializeField] Image[] members = new Image[1];
+    public Squad squad;
+    public CommandMenu parent;
 
     public void SetTitle(SquadBehavior s, int num)
     {
         // Title includes the squad's ID and current status
-        s.CurrentState();
         string status;
         switch (s.CurrentState()) {
             case SquadBehavior.SquadStates.Battle:
                 status = "Fighting an enemy squad";
                 break;
             case SquadBehavior.SquadStates.BattleEngage:
-                status = "Fighting an enemy squad";
+                status = "Picking a fight";
                 break;
             case SquadBehavior.SquadStates.ToObjective:
                 status = $"Going to the {s.locationName}";
@@ -36,7 +38,7 @@ public class SquadSelect : MonoBehaviour
 
     public void SetChibis(List<NPC> npcs)
     {
-        Debug.Log($"Setting chibis: {npcs.Count}");
+        //Debug.Log($"Setting chibis: {npcs.Count}");
         members = new Image[npcs.Count];
         for (int i = 0; i < members.Length; i++)
         {
@@ -58,5 +60,17 @@ public class SquadSelect : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void SetParent(CommandMenu c)
+    {
+        parent = c;
+    }
+
+    public void ViewSquad()
+    {
+        Debug.Log(parent);
+        Debug.Log(squad);
+        parent.SelectSquad(squad);
     }
 }

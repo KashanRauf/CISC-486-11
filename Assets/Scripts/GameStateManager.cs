@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,16 @@ public class GameStateManager : MonoBehaviour
     private void Awake()
     {
         GSM = this;
+    }
+
+    public static CapturePoint NameToObjective(string name)
+    {
+        for (int i = 0; i < GSM.Objectives.Length; i++)
+        {
+            if (GSM.Objectives[i].name == name) return GSM.Objectives[i];
+        }
+        Debug.LogError("NameToObjective failed");
+        return null;
     }
 
     void Start()

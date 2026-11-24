@@ -19,7 +19,7 @@ public class DialogueManager : ManagedUI
     // For making the "typing" effect of the text feel nicer
     private char[] punctuation = ".,…!?:;~-".ToCharArray();
 
-    void Start()
+    void Awake()
     {
         dialogue = new Queue<Dialogue>();
     }
@@ -74,7 +74,6 @@ public class DialogueManager : ManagedUI
         // Typing effect
         StopAllCoroutines(); // Terminates typing if player skips before it ends
         StartCoroutine(TypeSentence(cur.text, 1));
-        portrait.SetByName(cur.portrait);
         
         if (portrait != null && !string.IsNullOrEmpty(cur.portrait))
         {

@@ -33,8 +33,9 @@ public class Combat : MonoBehaviour
             c.fighters.Add(n);
         }
 
-        challenger.behavior.SquadBattleEngage(c);
-        challenged.behavior.SquadBattleEngage(c);
+        challenger.behavior.SquadBattleEngage(c, challenged);
+        challenged.behavior.SquadBattleEngage(c, challenger);
+        SquadBehavior.battleHistory.Add(c);
     }
 
     public bool CheckSquadsReady()

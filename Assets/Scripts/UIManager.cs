@@ -7,16 +7,19 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager singleton { get; private set; }
 
-    // Optional default, could be null, the HUD, the Shop UI, etc.
-    [SerializeField] private ManagedUI defaultUI;
 
     // Start() will populate the list
     [SerializeField] private ManagedUI[] uis;
 
     private ManagedUI activeUI;
 
+    // Optional default, could be null, the HUD, the Shop UI, etc.
+    [SerializeField] private ManagedUI defaultUI;
+
     // Pretty much just for back buttons
     private readonly Stack<ManagedUI> history = new Stack<ManagedUI>();
+
+    public static ManagedUI GetActive => singleton.activeUI;
 
     // Probably redundant, but finds a specific ManagedUI by the type
     public static T GetUI<T>() where T : ManagedUI
@@ -119,9 +122,8 @@ public class UIManager : MonoBehaviour
         if (singleton.activeUI == null) return;
 
         singleton.activeUI.Hide();
-        singleton.activeUI = singleton.defaultUI;
         singleton.history.Clear();
+        //singleton.activeUI = singleton.defaultUI;
+        Show(singleton.defaultUI);
     }
-
-
 }
