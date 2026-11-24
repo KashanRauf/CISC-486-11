@@ -149,7 +149,9 @@ public class GameStateManager : MonoBehaviour
                     else if (currentLevel == 3)
                     {
                         SaveManager.SetLevel(4);
-                        Debug.Log("Final wave completed! Ending required.");
+                        Debug.Log("Final wave completed! Loading ending.");
+                        SceneManager.LoadScene("BadEnding"); // will change when other endings are created
+                        return;
                     }
                 }
                 break;
@@ -167,22 +169,6 @@ public class GameStateManager : MonoBehaviour
         OnGameStateChange?.Invoke(g);
 
     }
-
-    # if UNITY_EDITOR
-    [ContextMenu("TEST - Trigger Victory")]
-    private void TestVictory()
-    {
-        Debug.Log("TEST: Manually triggering victory");
-        SetGameState(GameState.VICTORY);
-    }
-
-    [ContextMenu("TEST - Earn 60 Battle Coins")]
-    private void TestBattleCoins()
-    {
-        SaveManager.AddBattleReward(60);
-        Debug.Log("TEST: Added 60 temporary battle coins.");
-    }
-    #endif
 
     private IEnumerator StartWaveDialogue()
     {
@@ -230,6 +216,27 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Dialogue finished. Starting battle W" + SaveManager.CurrentSave.currentLevel);
 
         SetGameState(GameState.BATTLE);
+    }
+
+    public void RetryWave() 
+    {
+        // TODO (UI): Connect this method to the Retry button on the
+        // defeat screen. GameStateManager should display the defeat UI
+        // when GameState.DEFEAT is triggered.
+        //
+        // RetryWave() reloads the current wave without advancing the
+        // saved level or keeping coins earned during the failed battle.
+        if (State != GameState.DEFEAT)
+        {
+            Debug.LogWarning("Cannot retry: battle is not defeated.");
+            return;
+        }
+
+        SaveManager.DiscardBattleRewards();
+
+        Debug.Log("Retrying wave W" + SaveManager.CurrentSave.currentLevel);
+
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void OpenShop()
