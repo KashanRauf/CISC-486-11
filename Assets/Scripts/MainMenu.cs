@@ -24,7 +24,19 @@ public class MainMenu : ManagedUI
         if (SaveManager.SaveExists())
         {
             SaveManager.LoadGame();
-            SceneManager.LoadScene("HomeScene");
+            if (SaveManager.CurrentSave.currentLevel == 0)
+            {
+                SceneManager.LoadScene("HomeScene");
+            }
+            else if (SaveManager.CurrentSave.currentLevel < 4)
+            {
+                SceneManager.LoadScene("ShopScene");
+            }
+            else
+            {
+                Debug.Log("Game completed (ending transition not yet implemented)");
+                SceneManager.LoadScene("HomeScene");
+            }
         }
         else
         {

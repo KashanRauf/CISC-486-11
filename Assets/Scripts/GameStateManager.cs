@@ -10,6 +10,7 @@ public class GameStateManager : MonoBehaviour
 
     private bool stateInitialized = false;
     private bool levelCompleted = false;
+    private bool enemiesHaveSpawned = false;
 
     [SerializeField] TeamManager PlayerTeam;
     [SerializeField] TeamManager EnemyTeam;
@@ -40,26 +41,58 @@ public class GameStateManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("No save file found)");
+                Debug.LogWarning(
+                    "No save found. Creating a new game."
+                );
+
+                SaveManager.CreateNewGame();
             }
-            Debug.Log("Starting wave W" + SaveManager.CurrentSave.currentLevel + " with " + SaveManager.CurrentSave.money + " money and " + SaveManager.CurrentSave.currentLevel);
         }
+
+        Debug.Log(
+            "Starting wave W" +
+            SaveManager.CurrentSave.currentLevel +
+            " with " +
+            SaveManager.CurrentSave.money +
+            " coins and " +
+            SaveManager.CurrentSave.morale +
+            " morale."
+        );
+
         // TODO: Dialogue and cinematic camera, automatically transition to LEVELSTART when done
         //SetGameState(GameState.CUTSCENE);
 
-        // Temp
         SetGameState(GameState.LEVELSTART);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (State == GameState.BATTLE)
+        if (State != GameState.BATTLE)
         {
-            if (AllObjectivesCaptured())
-            {
-                SetGameState(GameState.DEFEAT);
-            }
+            return;
+        }
+
+        // track whether enemies have appeared in this battle
+        if (EnemyTeam != null && EnemyTeam.squads.Count > 0)
+        {
+            enemiesHaveSpawned = true;
+        }
+
+        // defeat if all ship objectives are captured 
+        if (AllObjectivesCaptured())
+        {
+            SetGameState(GameState.DEFEAT);
+            return;
+        }
+
+        // victory when every spawned enemy squad is defeated 
+        if (enemiesHaveSpawned &&
+            EnemyTeam != null &&
+            EnemyTeam.squads.Count == 0)
+        {
+            Debug.Log("All enemy squads defeated! Victory!");
+            SetGameState(GameState.VICTORY);
         }
         
     }
@@ -87,18 +120,33 @@ public class GameStateManager : MonoBehaviour
                 break;
             case GameState.BATTLE:
                 break;
+            
             case GameState.VICTORY:
                 if (!levelCompleted && SaveManager.CurrentSave != null)
                 {
+                    levelCompleted = true;
+
                     int currentLevel = SaveManager.CurrentSave.currentLevel;
-                    if (currentLevel < 4)
+
+                    if (currentLevel < 3)
                     {
-                        levelCompleted = true;
                         SaveManager.SetLevel(currentLevel + 1);
-                        Debug.Log("Level completed, saving progress. Next level: " + (currentLevel + 1));
+
+                        Debug.Log("Wave W" + currentLevel +
+                            " completed. Next wave: W" +
+                            SaveManager.CurrentSave.currentLevel);
+
+                        OpenShop();
+                        return;
+                    }
+                    else if (currentLevel == 3)
+                    {
+                        SaveManager.SetLevel(4);
+                        Debug.Log("Final wave completed! Ending required.");
                     }
                 }
                 break;
+
             case GameState.DEFEAT:
                 break;
             case GameState.SHOP:
@@ -110,6 +158,15 @@ public class GameStateManager : MonoBehaviour
         OnGameStateChange?.Invoke(g);
 
     }
+
+    # if UNITY_EDITOR
+    [ContextMenu("TEST - Trigger Victory")]
+    private void TestVictory()
+    {
+        Debug.Log("TEST: Manually triggering victory");
+        SetGameState(GameState.VICTORY);
+    }
+    #endif
 
     public void OpenShop()
     {
