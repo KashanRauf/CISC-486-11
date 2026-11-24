@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: brown
-    second: {fileID: 2100000, guid: e95104f05558745db8eb7357831ce8fb, type: 2}
+    second: {fileID: 2100000, guid: 5624a5d23d27c455e855d038fb887574, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -28,7 +28,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: brown2
-    second: {fileID: 2100000, guid: 1c86986bde7e54362805ea11c6f9713e, type: 2}
+    second: {fileID: 2100000, guid: e95104f05558745db8eb7357831ce8fb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -88,7 +88,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -153,8 +153,271 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: pre_captain
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Pirate1_Left_Arm
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Pirate1_Right_Foot
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: captain 1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Light.013
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Camera.013
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: captain(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pre_captain
+      parentName: captain(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 100, y: 100.00001, z: 99.99999}
+    - name: Camera.001
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Camera.002
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Camera.003
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062849, y: 0.8937963, z: -0.20997299, w: 0.38577977}
+      scale: {x: 100.00001, y: 100.000015, z: 100}
+    - name: Camera.004
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Camera.005
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062849, y: 0.8937963, z: -0.20997299, w: 0.38577977}
+      scale: {x: 100.00001, y: 100.000015, z: 100}
+    - name: Camera.006
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Camera.007
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062849, y: 0.8937963, z: -0.20997299, w: 0.38577977}
+      scale: {x: 100.00001, y: 100.000015, z: 100}
+    - name: Camera.008
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Camera.009
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Camera.010
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062849, y: 0.8937963, z: -0.20997299, w: 0.38577977}
+      scale: {x: 100.00001, y: 100.000015, z: 100}
+    - name: Camera.011
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: -0.20870349, y: 0.7804827, z: 0.4835361, w: 0.3368715}
+      scale: {x: 10000.001, y: 10000, z: 10000}
+    - name: Camera.012
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: -0.20870349, y: 0.7804827, z: 0.4835361, w: 0.3368715}
+      scale: {x: 10000.001, y: 10000, z: 10000}
+    - name: Camera.015
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062845, y: 0.8937963, z: -0.20997304, w: 0.38577977}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Camera.016
+      parentName: pre_captain
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062849, y: 0.8937963, z: -0.20997299, w: 0.38577977}
+      scale: {x: 100.00001, y: 100.000015, z: 100}
+    - name: captain 1
+      parentName: pre_captain
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.6951065, y: 0.04268249, z: -0.042697225, w: 0.7163673}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Camera.013
+      parentName: captain 1
+      position: {x: -0.073588915, y: -0.06925791, z: 0.049583092}
+      rotation: {x: 0.09062852, y: 0.20997292, z: 0.89379627, w: 0.3857798}
+      scale: {x: 100.000015, y: 99.99999, z: 100.00001}
+    - name: Camera.014
+      parentName: captain 1
+      position: {x: -0.073588915, y: -0.06925791, z: 0.049583092}
+      rotation: {x: 0.09062852, y: 0.20997292, z: 0.89379627, w: 0.3857798}
+      scale: {x: 100, y: 100.00002, z: 100.00001}
+    - name: Light.013
+      parentName: captain 1
+      position: {x: -0.040762447, y: 0.010054539, z: 0.05903862}
+      rotation: {x: 0.16907564, y: -0.2721714, z: -0.7558803, w: 0.57094765}
+      scale: {x: 100.00001, y: 100, z: 100.00001}
+    - name: Light.014
+      parentName: captain 1
+      position: {x: -0.040762447, y: 0.010054539, z: 0.05903862}
+      rotation: {x: 0.16907564, y: -0.2721714, z: -0.7558803, w: 0.57094765}
+      scale: {x: 99.99999, y: 100.00001, z: 100.00001}
+    - name: Light
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100.00001, y: 100, z: 100}
+    - name: Light.001
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.002
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.003
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.004
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.005
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.006
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.007
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.008
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.009
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.010
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.011
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.28416628, y: 0.7269424, z: 0.342034, w: -0.52327526}
+      scale: {x: 10000.001, y: 10000, z: 10000.001}
+    - name: Light.012
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.28416628, y: 0.7269424, z: 0.342034, w: -0.52327526}
+      scale: {x: 10000.001, y: 10000, z: 10000.001}
+    - name: Light.015
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Light.016
+      parentName: pre_captain
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.2841662}
+      scale: {x: 100, y: 100, z: 100.00001}
+    - name: Pirate1_Body.002
+      parentName: pre_captain
+      position: {x: 0.0048955963, y: 0.45185897, z: -0.07975732}
+      rotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 75.703094, y: 75.703094, z: 75.703094}
+    - name: Pirate1_Head
+      parentName: pre_captain
+      position: {x: 0.014569667, y: 1.9707623, z: -0.07975732}
+      rotation: {x: 0.7069847, y: 0, z: 0, w: 0.70722884}
+      scale: {x: -78.99237, y: -78.99237, z: -78.99237}
+    - name: Pirate1_Left_Arm
+      parentName: pre_captain
+      position: {x: -0.13208063, y: 1.1542602, z: -0.07975726}
+      rotation: {x: -0.7064183, y: -0.031197583, z: 0.031197676, w: 0.70641816}
+      scale: {x: 20.749678, y: 20.749672, z: 20.749678}
+    - name: Pirate1_Right_Arm
+      parentName: pre_captain
+      position: {x: 0.141869, y: 1.1542606, z: -0.079757266}
+      rotation: {x: -0.7064183, y: -0.031197583, z: 0.031197676, w: 0.70641816}
+      scale: {x: 20.749678, y: 20.749672, z: 20.749678}
+    - name: Pirate1_Right_Foot
+      parentName: pre_captain
+      position: {x: 0.27679956, y: 0.18488592, z: -0.113282785}
+      rotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 19.361319, y: 19.361319, z: 19.361319}
+    - name: repair
+      parentName: pre_captain
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.70698476, y: 0, z: -0, w: 0.7072288}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -165,13 +428,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
