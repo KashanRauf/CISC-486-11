@@ -16,6 +16,7 @@ public class Squad : NPCComponent
     public float battleEngageRadius = 24f;
     public int enemyTeamLayer;
 
+    public Team GetTeam => this.manager.team;
 
     public int MemberCount()
     {

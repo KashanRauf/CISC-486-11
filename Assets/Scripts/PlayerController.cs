@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     PlayerInputActions actions;
     [SerializeField] InputAction move;
 
+    // Movement is relative to camera so we need it
+    [SerializeField] private Camera cam;
+
     // Movement
     private CharacterController control;
     [SerializeField] private float moveSpeed = 5f;
@@ -19,8 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSpeed = 20f;
     [SerializeField] private float gravity = 2.2f;
 
-    // Movement is relative to camera so we need it
-    [SerializeField] private Camera cam;
 
     // Temporarily removed jump function since it isn't necessary to fix atm (i just like being able to jump)
     private void PlayerJump(InputAction.CallbackContext context)
@@ -44,10 +45,11 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    private void OpenCommandMenu(InputAction.CallbackContext context)
+    private void ToggleCommandMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("Opened the command menu");
-        UIManager.Show<CommandMenu>();
+        //Debug.Log("Opened the command menu");
+        if (UIManager.GetActive.GetType() != typeof(CommandMenu)) UIManager.Show<CommandMenu>();
+        else UIManager.CloseCurrent();
     }
 
     private void OpenPauseMenu(InputAction.CallbackContext context)
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         actions.Player.Jump.started += PlayerJump;
-        actions.Player.CommandMenu.started += OpenCommandMenu;
+        actions.Player.CommandMenu.started += ToggleCommandMenu;
         actions.Player.Pause.started += OpenPauseMenu;
         move = actions.Player.Move;
 
@@ -77,7 +79,7 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         actions.Player.Jump.started -= PlayerJump;
-        actions.Player.CommandMenu.started -= OpenCommandMenu;
+        actions.Player.CommandMenu.started -= ToggleCommandMenu;
         actions.Player.Pause.started -= OpenPauseMenu;
 
         actions.Player.Disable();
@@ -85,12 +87,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Move
-        //forceDir += move.ReadValue<Vector2>().x * GetCameraRight(cam) * moveForce;
-        //forceDir += move.ReadValue<Vector2>().y * GetCameraForward(cam) * moveForce;
-
-        //body.AddForce(forceDir, ForceMode.Impulse);
-        //forceDir = Vector3.zero;
         Vector3 moveDir = Vector3.zero;
         moveDir += move.ReadValue<Vector2>().x * GetCameraRight(cam);
         moveDir += move.ReadValue<Vector2>().y * GetCameraForward(cam);
@@ -99,12 +95,6 @@ public class PlayerController : MonoBehaviour
 
 
         LookAt();
-
-        // Makes the jump feel worse
-        //if (body.linearVelocity.y < 0f)
-        //{
-        //    body.linearVelocity += Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
-        //}
 
         //Vector3 horizontalVel = body.linearVelocity;
         //horizontalVel.y = 0;
@@ -127,7 +117,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        Debug.DrawLine(this.transform.position, this.transform.forward);
+        //Debug.DrawLine(this.transform.position, this.transform.forward);
     }
 
     // Camera directions normalized to the horizontal plane
