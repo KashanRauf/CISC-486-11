@@ -194,10 +194,10 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: ce1c8730f16d0441c98c02b7cf20926d, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 2a7d722ed1c144ce6bd6a0f2a74f939d, type: 2}
+      objectReference: {fileID: 9100000, guid: 61c2b747423b24894b923da9eb78522f, type: 2}
     - target: {fileID: 5866666021909216657, guid: ce1c8730f16d0441c98c02b7cf20926d, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are already bound by a Humanoid avatar. These transforms can only be changed by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightHandIndex3'\n\tTransform 'mixamorig:RightFoot'\n\tand more ...\n\tFrom animation clip 'idle'\n\tFrom animation clip 'run'\n\tFrom animation clip 'punch'\n\tFrom animation clip 'throw'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ce1c8730f16d0441c98c02b7cf20926d, type: 3}
       propertyPath: m_ApplyRootMotion
