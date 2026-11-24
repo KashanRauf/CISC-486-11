@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameStateManager : MonoBehaviour
 
     private bool stateInitialized = false;
     private bool levelCompleted = false;
+    [Header("Story Dialogue")]
+    [SerializeField] private TextAsset[] waveDialogues = new TextAsset[4];
     private bool enemiesHaveSpawned = false;
 
     [SerializeField] TeamManager PlayerTeam;
@@ -113,8 +116,7 @@ public class GameStateManager : MonoBehaviour
                 SetGameState(GameState.CUTSCENE);
                 break;
             case GameState.CUTSCENE:
-                // Wait until the cutscene or dialogue ends
-                SetGameState(GameState.BATTLE);
+                StartCoroutine(StartWaveDialogue());
                 break;
             case GameState.PAUSE:
                 break;
@@ -181,6 +183,54 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("TEST: Added 60 temporary battle coins.");
     }
     #endif
+
+    private IEnumerator StartWaveDialogue()
+    {
+        // Allow UIManager to finish initializing
+        yield return null;
+
+        if (State != GameState.CUTSCENE) 
+            yield break;
+        
+        int level = SaveManager.CurrentSave.currentLevel;
+
+        // No dialogue configured? Start combat normally
+        if (level < 0 || level >= waveDialogues.Length || waveDialogues[level] == null)
+        {
+            Debug.Log("No dialogue for W" + level + ". Starting battle.");
+            BeginBattleAfterDialogue();
+            yield break;
+        }
+
+        DialogueManager dialogueManager = UIManager.GetUI<DialogueManager>();
+
+        if (dialogueManager == null)
+        {
+            Debug.LogWarning("Dialogue manager not found, skipping dialogue");
+            BeginBattleAfterDialogue();
+            yield break;
+        }
+
+        // start battle when dialogue is finished
+        dialogueManager.onDialogueFinished -= BeginBattleAfterDialogue;
+        dialogueManager.onDialogueFinished += BeginBattleAfterDialogue;
+
+        UIManager.Show(dialogueManager);
+        dialogueManager.StartDialogue(waveDialogues[level]);
+
+    }
+
+    public void BeginBattleAfterDialogue()
+    {
+        if (State != GameState.CUTSCENE)
+        {
+            return;
+        }
+
+        Debug.Log("Dialogue finished. Starting battle W" + SaveManager.CurrentSave.currentLevel);
+
+        SetGameState(GameState.BATTLE);
+    }
 
     public void OpenShop()
     {

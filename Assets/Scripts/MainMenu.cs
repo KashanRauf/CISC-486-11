@@ -23,18 +23,38 @@ public class MainMenu : ManagedUI
 
         if (SaveManager.SaveExists())
         {
-            SaveManager.LoadGame();
-            if (SaveManager.CurrentSave.currentLevel == 0)
+            // SaveManager.LoadGame();
+            // if (SaveManager.CurrentSave.currentLevel == 0)
+            // {
+            //     SceneManager.LoadScene("HomeScene");
+            // }
+            // else if (SaveManager.CurrentSave.currentLevel < 4)
+            // {
+            //     SceneManager.LoadScene("ShopScene");
+            // }
+            // else
+            // {
+            //     Debug.Log("Game completed (ending transition not yet implemented)");
+            //     SceneManager.LoadScene("HomeScene");
+            // }
+
+            SaveData save = SaveManager.LoadGame();
+
+            if (save.currentLevel == 0)
             {
+                // tutorial hasn't beebn completed, skip shop
                 SceneManager.LoadScene("HomeScene");
             }
-            else if (SaveManager.CurrentSave.currentLevel < 4)
+            else if (save.currentLevel < 4)
             {
+                // resume at the shop before the next wave
                 SceneManager.LoadScene("ShopScene");
             }
             else
             {
-                Debug.Log("Game completed (ending transition not yet implemented)");
+                // final wave completed
+                // TODO: connect ending
+                Debug.Log("Game completed. Ending not yet implemented");
                 SceneManager.LoadScene("HomeScene");
             }
         }
