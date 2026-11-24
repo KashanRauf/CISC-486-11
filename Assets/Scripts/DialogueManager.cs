@@ -27,6 +27,10 @@ public class DialogueManager : ManagedUI
     // Called by the DialogueTrigger
     public void StartDialogue(TextAsset data)
     {
+        if (dialogue == null) 
+        {
+            dialogue = new Queue<Dialogue>();
+        }
         Debug.Log("Loading dialogue: " + data.name);
         dialogue.Clear();
         BuildDialogue(data);

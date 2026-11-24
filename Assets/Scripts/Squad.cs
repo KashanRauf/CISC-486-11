@@ -247,7 +247,7 @@ public class Squad : NPCComponent
 
                 if (manager.team == Team.Attack)
                 {
-                    SaveManager.AddMoney(members[i].GetCoinReward());
+                    SaveManager.AddBattleReward(members[i].GetCoinReward());
                 }
                 dead.Add(members[i]);
                 members.RemoveAt(i);
