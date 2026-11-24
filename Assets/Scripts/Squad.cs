@@ -59,6 +59,12 @@ public class Squad : NPCComponent
         NPC n = Instantiate(prefab, this.transform).GetComponent<NPC>();
         n.name = $"{this.manager.team} member {members.Count}";
 
+        //call animation
+        Animator animator = n.GetComponentInChildren<Animator>();
+        if (animator != null){
+            animator.Play("Idle");
+        }
+
         AddMember(n);
 
         return n;
